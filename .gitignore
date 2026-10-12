@@ -1,0 +1,28 @@
+# Protection : ces fichiers ne partent JAMAIS sur internet
+# (le dépôt est public, tout ce qui est envoyé est visible par tous)
+
+# ---------- Secrets et clés d'API ----------
+.env
+.env.*
+*.env
+*key
+*.key
+*.pem
+credentials*.json
+client_secret*.json
+secrets/
+
+# ---------- Documents privés ----------
+prive/
+*.docx
+*.xlsx
+*.pdf
+
+# ---------- Fichiers système et temporaires ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+~$*
+*.log
