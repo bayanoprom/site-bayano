@@ -1,0 +1,12 @@
+# Protections de sécurité envoyées par Cloudflare avec chaque page
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'
+
+# Images et vidéos gardées en cache 7 jours (site plus rapide pour les visiteurs qui reviennent)
+/images/*
+  Cache-Control: public, max-age=604800
