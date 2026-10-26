@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Bayano Studio | Sites web et IA pour les commerces d'Abidjan</title>
-  <meta name="description" content="Bayano Studio, consultant IA à Abidjan : sites vitrine, catalogue et boutique avec commande WhatsApp et paiement Wave ou Orange Money, automatisations WhatsApp, affiches et pubs vidéo. Démo gratuite.">
+  <title>Bayano Studio | Sites web pour les commerces d'Abidjan</title>
+  <meta name="description" content="Bayano Studio à Abidjan : sites vitrine, catalogue et boutique avec commande WhatsApp et paiement Wave ou Orange Money, automatisations WhatsApp, affiches et pubs vidéo.">
   <meta name="theme-color" content="#0a1020">
   <link rel="canonical" href="https://bayano-studio.pages.dev/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='6,6 24,22 40,22 58,6 58,30 32,60 6,30' fill='%23ff2e4d'/%3E%3Cpolygon points='12,32 32,58 30,40' fill='%23fff4e8'/%3E%3Cpolygon points='52,32 32,58 34,40' fill='%23fff4e8'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Bayano Studio">
-  <meta property="og:title" content="Bayano Studio | Sites web et IA pour les commerces d'Abidjan">
-  <meta property="og:description" content="Votre boutique en ligne, prête à vendre : commande WhatsApp, paiement Wave et Orange Money. Démo gratuite avec vos produits.">
+  <meta property="og:title" content="Bayano Studio | Sites web pour les commerces d'Abidjan">
+  <meta property="og:description" content="Vos clients vous cherchent en ligne. Un site avec commande WhatsApp et paiement Wave ou Orange Money.">
   <meta property="og:url" content="https://bayano-studio.pages.dev/">
   <meta property="og:image" content="https://bayano-studio.pages.dev/images/hero-abidjan.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +23,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Bayano Studio",
-    "description": "Consultant IA à Abidjan : sites web pour commerçants et PME, automatisations WhatsApp, affiches et pubs vidéo.",
+    "description": "Création de sites web à Abidjan pour commerçants et PME, automatisations WhatsApp, affiches et pubs vidéo.",
     "url": "https://bayano-studio.pages.dev/",
     "image": "https://bayano-studio.pages.dev/images/hero-abidjan.jpg",
     "telephone": "+2250141377402",
@@ -82,11 +82,43 @@
     .barre { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 0; }
     .logo { display: flex; align-items: center; gap: 9px; font-weight: 500; font-size: 1.1rem; letter-spacing: -.02em; }
     .logo svg { width: 26px; height: 26px; }
-    nav { display: flex; align-items: center; gap: 28px; font-size: .88rem; }
-    nav a:not(.btn) { opacity: .8; }
-    nav a:not(.btn):hover { opacity: 1; }
-    nav .btn { padding: 9px 16px; font-size: .85rem; }
-    @media (max-width: 820px) { nav a:not(.btn) { display: none; } }
+    nav { display: flex; align-items: center; gap: 18px; font-size: .9rem; }
+    nav > .btn { padding: 9px 16px; font-size: .85rem; }
+    .menu { list-style: none; display: flex; gap: 4px; }
+    .groupe { position: relative; }
+    .rubrique { display: flex; align-items: center; gap: 5px; padding: 8px 12px; border: 0; border-radius: 6px; background: none; color: inherit; font: inherit; cursor: pointer; opacity: .85; }
+    .rubrique:hover, .rubrique[aria-expanded="true"] { opacity: 1; background: rgba(255,255,255,.08); }
+    .rubrique svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform .25s; }
+    .rubrique[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .sous-menu {
+      position: absolute; top: calc(100% + 10px); left: 0; min-width: 280px; padding: 8px; border-radius: 12px;
+      background: rgba(13,21,40,.97); border: 1px solid var(--filet); box-shadow: 0 30px 60px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(58,160,255,.08);
+      backdrop-filter: blur(12px); animation: ouvre .2s ease-out;
+    }
+    @keyframes ouvre { from { opacity: 0; transform: translateY(-6px); } }
+    .sous-menu a { display: block; padding: 10px 12px; border-radius: 8px; }
+    .sous-menu a:hover, .sous-menu a:focus-visible { background: rgba(255,46,77,.12); }
+    .sous-menu b { display: block; font-weight: 500; }
+    .sous-menu span { display: block; color: var(--gris); font-size: .8rem; font-weight: 300; }
+    .burger { display: none; width: 42px; height: 42px; border: 1px solid var(--filet); border-radius: 8px; background: rgba(13,21,40,.6); cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+    .burger span { width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: transform .25s, opacity .25s; }
+    .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      nav { gap: 10px; }
+      .burger { display: flex; }
+      .menu { display: none; position: fixed; inset: 70px 0 0; flex-direction: column; gap: 0; padding: 10px 16px 40px; background: rgba(10,16,32,.98); overflow-y: auto; }
+      nav.ouvert .menu { display: flex; }
+      .groupe { border-bottom: 1px solid var(--filet); padding: 10px 0; }
+      .rubrique { pointer-events: none; opacity: 1; padding: 6px 12px; font-size: .78rem; color: var(--renard); }
+      .rubrique svg { display: none; }
+      .sous-menu, .sous-menu[hidden] { display: block; position: static; min-width: 0; padding: 0; border: 0; box-shadow: none; background: none; animation: none; }
+      .sous-menu b { font-size: 1.05rem; }
+    }
+    .logo, nav > .btn { white-space: nowrap; }
+    nav > .btn .long { text-transform: none; }
+    @media (max-width: 600px) { nav > .btn .long { display: none; } nav > .btn { text-transform: capitalize; } }
 
     /* ===== Accueil : la scène 3D d'Abidjan (la partie validée par Renard) ===== */
     .hero { position: relative; min-height: 100svh; overflow: hidden; display: flex; align-items: flex-end; }
@@ -484,12 +516,43 @@
         </svg>
         bayano studio
       </a>
-      <nav aria-label="Menu principal">
-        <a href="#pubs">Offres</a>
-        <a href="#essai">Essayer</a>
-        <a href="#cas">Exemple</a>
-        <a href="#qui">Qui suis-je</a>
-        <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">Démo gratuite</a>
+      <nav id="nav" aria-label="Menu principal">
+        <ul class="menu" id="menu">
+          <li class="groupe">
+            <button type="button" class="rubrique" aria-expanded="false" aria-controls="m-offres">Offres<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="sous-menu" id="m-offres" hidden>
+              <a href="#pubs" data-service="0"><b>Site vitrine</b><span>Une page pro pour exister en ligne</span></a>
+              <a href="#pubs" data-service="1"><b>Site catalogue</b><span>Tous vos produits, avec photos et prix</span></a>
+              <a href="#pubs" data-service="2"><b>Boutique autonome</b><span>Vous gérez vos produits vous-même</span></a>
+              <a href="#pubs" data-service="3"><b>Automatisation WhatsApp</b><span>Des réponses automatiques, bientôt</span></a>
+              <a href="#pubs" data-service="4"><b>Visuels et pubs</b><span>Affiches, pubs vidéo, photos produits</span></a>
+            </div>
+          </li>
+          <li class="groupe">
+            <button type="button" class="rubrique" aria-expanded="false" aria-controls="m-essayer">Essayer<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="sous-menu" id="m-essayer" hidden>
+              <a href="#essai" data-focus="essai-nom"><b>Votre site en 10 secondes</b><span>Voyez votre boutique en ligne, avec votre nom</span></a>
+            </div>
+          </li>
+          <li class="groupe">
+            <button type="button" class="rubrique" aria-expanded="false" aria-controls="m-exemple">Exemple<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="sous-menu" id="m-exemple" hidden>
+              <a href="#cas"><b>Almade Snkrs : avant / après</b><span>Ce qui a changé pour ce vendeur</span></a>
+              <a href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer"><b>Voir le site Almade en ligne</b><span>S'ouvre dans un nouvel onglet</span></a>
+            </div>
+          </li>
+          <li class="groupe">
+            <button type="button" class="rubrique" aria-expanded="false" aria-controls="m-qui">Qui suis-je<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="sous-menu" id="m-qui" hidden>
+              <a href="#qui"><b>Mon parcours</b><span>Qui est derrière Bayano Studio</span></a>
+              <a href="#etapes"><b>Comment ça marche</b><span>De votre message à votre site en ligne</span></a>
+              <a href="#faq"><b>Questions fréquentes</b><span>Prix, délais, paiement</span></a>
+              <a href="#contact"><b>Me contacter</b><span>WhatsApp et e-mail</span></a>
+            </div>
+          </li>
+        </ul>
+        <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis%20pour%20le%20site%20de%20mon%20commerce." target="_blank" rel="noopener noreferrer"><span class="long">Demander un </span>devis</a>
+        <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
       </nav>
     </div>
   </header>
@@ -500,10 +563,10 @@
       <video id="video-hero" src="images/hero-studio.mp4" poster="images/hero-studio.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <div class="voile"></div>
       <div class="conteneur texte">
-        <h1 class="entree">Votre boutique en ligne, prête à vendre.</h1>
-        <p class="entree">Je crée le site de votre commerce et je vous aide à vendre plus grâce à l'IA, à Abidjan.</p>
+        <h1 class="entree">Vos clients vous cherchent en ligne. Soyez là.</h1>
+        <p class="entree">Je crée le site de votre commerce à Abidjan : vos produits, vos prix, la commande sur WhatsApp et le paiement Wave ou Orange Money.</p>
         <div class="entree">
-          <a class="btn btn-clair" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20une%20d%C3%A9mo%20gratuite%20de%20site%20pour%20mon%20commerce." target="_blank" rel="noopener noreferrer">Demander une démo gratuite</a>
+          <a class="btn btn-clair" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis%20pour%20le%20site%20de%20mon%20commerce." target="_blank" rel="noopener noreferrer">Demander un devis</a>
         </div>
       </div>
     </section>
@@ -516,9 +579,9 @@
     <!-- ===== ACCROCHE ===== -->
     <section class="accroche" id="accroche">
       <div class="conteneur">
-        <h2 class="mots" id="mots">Vos clients sont déjà sur WhatsApp et TikTok. Votre boutique doit l'être aussi : un vrai site, et l'IA pour vous faire gagner du temps.</h2>
+        <h2 class="mots" id="mots">Vos clients sont déjà sur WhatsApp et TikTok. Votre boutique doit l'être aussi, avec un vrai site qui vend pour vous.</h2>
         <ul class="atouts revele">
-          <li><b>Démo gratuite</b><span>avec vos propres produits</span></li>
+          <li><b>Devis gratuit</b><span>réponse dans la journée</span></li>
           <li><b>Wave et Orange Money</b><span>commande directe sur WhatsApp</span></li>
           <li><b>Vous gérez tout</b><span>depuis votre téléphone</span></li>
         </ul>
@@ -544,8 +607,8 @@
               <option value="telephones">Des téléphones</option>
             </select>
           </label>
-          <a class="btn" id="essai-envoyer" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20ma%20d%C3%A9mo%20gratuite." target="_blank" rel="noopener noreferrer">Recevoir ma vraie démo gratuite</a>
-          <p class="petit">Ceci est un aperçu automatique. La vraie démo est faite à la main, avec vos produits.</p>
+          <a class="btn" id="essai-envoyer" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis%20pour%20le%20site%20de%20mon%20commerce." target="_blank" rel="noopener noreferrer">Demander un devis pour ce site</a>
+          <p class="petit">Ceci est un aperçu automatique. Votre vrai site est fait sur mesure, avec vos produits.</p>
         </div>
         <div class="telephone-cadre" aria-live="polite">
           <div class="tel-ecran essai-site" id="essai-site" data-metier="sneakers">
@@ -678,16 +741,16 @@
           <div class="holo-texte">
             <div class="intro-qui">
               <h2>Derrière Bayano Studio</h2>
-              <p>Moi, c'est Renard, consultant IA. Diplômé en marketing, j'aide les commerçants et les PME d'Abidjan à vendre en ligne avec les meilleurs outils d'intelligence artificielle.</p>
+              <p>Moi, c'est Renard. Diplômé en marketing, j'aide les commerçants et les PME d'Abidjan à vendre en ligne.</p>
               <p class="indice">Continuez à défiler.</p>
             </div>
             <div class="panneau" aria-label="Fiche de Renard">
-              <div class="ligne-fiche"><span>Nom<b>Renard</b></span><span>Ville<b>Abidjan</b></span><span>Rôle<b>Consultant IA</b></span></div>
+              <div class="ligne-fiche"><span>Nom<b>Renard</b></span><span>Ville<b>Abidjan</b></span><span>Rôle<b>Fondateur</b></span></div>
               <h3>Compétences</h3>
               <ul class="jauges">
                 <li style="--v:.9">Sites web et boutiques<i></i></li>
                 <li style="--v:.92">Marketing<i></i></li>
-                <li style="--v:.85">Outils IA et automatisation<i></i></li>
+                <li style="--v:.85">Automatisation WhatsApp<i></i></li>
                 <li style="--v:.88">Visuels et pubs vidéo<i></i></li>
               </ul>
               <h3>Mission</h3>
@@ -703,7 +766,7 @@
     </section>
 
     <!-- ===== COMMENT ÇA MARCHE ===== -->
-    <section class="etapes-section">
+    <section class="etapes-section" id="etapes">
       <div class="conteneur revele">
         <h2>Tout se fait à distance</h2>
         <ol class="etapes">
@@ -719,9 +782,9 @@
             <div class="maquette creation" aria-hidden="true">
               <div class="calques"><span></span><span></span><span></span></div>
               <div class="progression"><i></i></div>
-              <small>Démo en préparation…</small>
+              <small>Création en cours…</small>
             </div>
-            <h3>Démo gratuite</h3><p>Je vous montre votre futur site avec vos produits, sans engagement.</p>
+            <h3>Je crée votre site</h3><p>Je vous montre l'avancement et j'ajuste selon vos retours.</p>
           </li>
           <li class="etape">
             <div class="maquette statut" aria-hidden="true">
@@ -740,8 +803,7 @@
       <div class="conteneur revele">
         <h2 id="t-faq">Vos questions</h2>
         <div class="faq-liste">
-          <details><summary>Combien coûte un site ?</summary><p>Ça dépend de la formule : vitrine, catalogue ou boutique autonome. Après la démo gratuite, je vous donne un prix clair, sans surprise.</p></details>
-          <details><summary>La démo est vraiment gratuite ?</summary><p>Oui. Je prépare une maquette avec le nom de votre boutique et quelques-uns de vos produits. Si elle ne vous plaît pas, vous ne payez rien.</p></details>
+          <details><summary>Combien coûte un site ?</summary><p>Ça dépend de la formule : vitrine, catalogue ou boutique autonome. Écrivez-moi : je vous envoie un devis clair, sans surprise.</p></details>
           <details><summary>En combien de temps mon site est prêt ?</summary><p>Quelques jours pour un site vitrine, et 2 à 3 semaines pour une boutique complète avec espace vendeur.</p></details>
           <details><summary>Comment se passe le paiement ?</summary><p>Un acompte de 50 % pour commencer, et le reste à la livraison du site.</p></details>
           <details><summary>C'est quoi le nom de domaine ?</summary><p>C'est l'adresse de votre site, par exemple maboutique.com. Il coûte environ 7 000 à 9 000 FCFA par an, à votre charge. Je m'occupe de tout le reste.</p></details>
@@ -760,7 +822,7 @@
       <div class="conteneur">
         <div class="contenu">
           <h2>Parlez-moi de votre commerce.</h2>
-          <p>Je vous prépare une démo gratuite avec vos produits. Réponse dans la journée.</p>
+          <p>Écrivez-moi : je vous réponds dans la journée avec un devis clair.</p>
           <div class="actions">
             <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">WhatsApp : +225 01 41 37 74 02</a>
             <a class="lien" href="mailto:bayano.pro.marketing@gmail.com">bayano.pro.marketing@gmail.com</a>
@@ -768,7 +830,7 @@
         </div>
         <footer>
           <span>© 2026 Bayano Studio, Abidjan</span>
-          <span>Créé avec un peu d'IA</span>
+          <span>Sites web, visuels et automatisations</span>
         </footer>
       </div>
     </section>
@@ -792,7 +854,7 @@
     var enAttente = false;
     // Phrase d'accroche : chaque mot devient un <span> ; les mots importants s'allument en rouge
     var mots = document.getElementById("mots");
-    var cles = ["WhatsApp", "TikTok.", "site,", "l'IA"];
+    var cles = ["WhatsApp", "TikTok.", "site", "vend"];
     mots.innerHTML = mots.textContent.trim().split(/\s+/).map(function (m) {
       return '<span' + (cles.indexOf(m) > -1 ? ' class="cle"' : '') + '>' + m + '</span>';
     }).join(" ");
@@ -843,6 +905,7 @@
         points.querySelectorAll("span").forEach(function (p, i) { p.classList.toggle("actif", i === actif); });
       }
       function aller(n) { actif = Math.max(0, Math.min(fiches.length - 1, n)); afficher(); }
+      window.allerService = aller;
 
       document.getElementById("prec").addEventListener("click", function () { aller(actif - 1); });
       document.getElementById("suiv").addEventListener("click", function () { aller(actif + 1); });
@@ -862,6 +925,47 @@
       });
       window.addEventListener("resize", afficher);
       afficher();
+    })();
+
+    // Menu : chaque rubrique ouvre son panneau d'options ; un seul ouvert à la fois
+    (function () {
+      var nav = document.getElementById("nav");
+      var burger = document.getElementById("burger");
+      var rubriques = Array.prototype.slice.call(document.querySelectorAll(".rubrique"));
+      function fermerTout(sauf) {
+        rubriques.forEach(function (r) {
+          if (r === sauf) return;
+          r.setAttribute("aria-expanded", "false");
+          document.getElementById(r.getAttribute("aria-controls")).hidden = true;
+        });
+      }
+      rubriques.forEach(function (r) {
+        r.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var ouvert = r.getAttribute("aria-expanded") === "true";
+          fermerTout(r);
+          r.setAttribute("aria-expanded", ouvert ? "false" : "true");
+          document.getElementById(r.getAttribute("aria-controls")).hidden = ouvert;
+        });
+      });
+      function fermerMenuMobile() { nav.classList.remove("ouvert"); burger.setAttribute("aria-expanded", "false"); burger.setAttribute("aria-label", "Ouvrir le menu"); }
+      burger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var ouvrir = !nav.classList.contains("ouvert");
+        nav.classList.toggle("ouvert", ouvrir);
+        burger.setAttribute("aria-expanded", ouvrir ? "true" : "false");
+        burger.setAttribute("aria-label", ouvrir ? "Fermer le menu" : "Ouvrir le menu");
+      });
+      document.addEventListener("click", function (e) { if (!nav.contains(e.target)) { fermerTout(); fermerMenuMobile(); } });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") { fermerTout(); fermerMenuMobile(); } });
+      // Choisir une option : on ferme le menu, puis on agit (carte du carrousel, champ à remplir…)
+      document.querySelectorAll(".sous-menu a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          fermerTout(); fermerMenuMobile();
+          if (a.dataset.service && window.allerService) window.allerService(parseInt(a.dataset.service, 10));
+          if (a.dataset.focus) setTimeout(function () { document.getElementById(a.dataset.focus).focus({ preventScroll: true }); }, 700);
+        });
+      });
     })();
 
     // Votre site en 10 secondes : la maquette se met à jour pendant la frappe
@@ -895,7 +999,7 @@
           var prix = document.createElement("b"); prix.textContent = p[1];
           d.appendChild(img); d.appendChild(t); d.appendChild(prix); liste.appendChild(d);
         });
-        var texte = "Bonjour, je voudrais ma démo gratuite de site pour ma boutique « " + n + " » (" + metier.options[metier.selectedIndex].text.toLowerCase() + ").";
+        var texte = "Bonjour, je voudrais un devis pour le site de ma boutique « " + n + " » (" + metier.options[metier.selectedIndex].text.toLowerCase() + ").";
         envoyer.href = "https://wa.me/2250141377402?text=" + encodeURIComponent(texte);
       }
       nom.addEventListener("input", majEssai);
