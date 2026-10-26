@@ -844,6 +844,13 @@
   <script>
     var calme = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    // Aperçu seulement : mode édition pour Renard (adresse terminée par ?edition)
+    if (/[?&]edition/.test(location.search)) {
+      var outilEdition = document.createElement("script");
+      outilEdition.src = "edition.js";
+      document.body.appendChild(outilEdition);
+    }
+
     // Vidéo de l'accueil : lecture automatique sans son
     var videoHero = document.getElementById("video-hero");
     if (!calme) { videoHero.play().catch(function () {}); }
