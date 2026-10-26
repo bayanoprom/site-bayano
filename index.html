@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Sécurité : seules les ressources du site et Google Fonts sont autorisées.
-       (Pour ajouter GoatCounter plus tard : autoriser https://gc.zgo.at et https://bayanostudio.goatcounter.com) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Bayano Studio | Pubs, affiches et sites web créés avec l'IA à Abidjan</title>
-  <meta name="description" content="Bayano Studio, studio créatif à Abidjan : pubs vidéo pour statut WhatsApp et TikTok, affiches à partir de 5 000 FCFA, photos produits et sites boutique avec paiement Wave et Orange Money. Tout se fait sur WhatsApp.">
-  <meta name="theme-color" content="#16120f">
+  <meta name="description" content="Bayano Studio, studio créatif à Abidjan : pubs vidéo pour statut WhatsApp et TikTok, affiches à partir de 5 000 FCFA, photos produits et sites boutique avec paiement Wave et Orange Money.">
+  <meta name="theme-color" content="#0d0b0a">
   <link rel="canonical" href="https://bayano-studio.pages.dev/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='6,6 24,22 40,22 58,6 58,30 32,60 6,30' fill='%23ff6a13'/%3E%3Cpolygon points='12,32 32,58 30,40' fill='%23fff4e8'/%3E%3Cpolygon points='52,32 32,58 34,40' fill='%23fff4e8'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Bayano Studio">
   <meta property="og:title" content="Bayano Studio | Pubs, affiches et sites web créés avec l'IA">
-  <meta property="og:description" content="Le prix d'une affiche, le rendu d'une agence. Pubs vidéo, affiches, photos produits et sites boutique pour commerçants et PME à Abidjan.">
+  <meta property="og:description" content="Le rendu d'une agence, au prix d'une affiche. Pubs vidéo, affiches, photos produits et sites boutique à Abidjan.">
   <meta property="og:url" content="https://bayano-studio.pages.dev/">
   <meta property="og:image" content="https://bayano-studio.pages.dev/images/asly-affiche-noir-carre.jpg">
   <meta property="og:image:width" content="1080">
   <meta property="og:image:height" content="1080">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fiche entreprise pour Google (recherches locales "pub Abidjan", "affiche Abidjan"...) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,437 +39,396 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ===== Couleurs de la marque ===== */
     :root {
-      --nuit: #16120f;        /* fond sombre */
-      --nuit-2: #221c17;      /* blocs */
-      --trait: #3a2f25;       /* filets et bordures */
+      --blanc: #ffffff;
+      --papier: #f5f3f0;      /* sections claires alternées */
+      --encre: #15120f;       /* texte principal */
+      --gris: #6e675f;        /* texte secondaire */
+      --filet: #e4dfd8;
       --renard: #ff6a13;      /* LA couleur de la marque */
-      --renard-clair: #ff9a4d;
-      --creme: #fff4e8;       /* texte */
-      --gris: #b9aca0;        /* texte secondaire */
-      --whatsapp: #25d366;    /* uniquement pour le bouton WhatsApp flottant */
+      --renard-fonce: #e85a08;
+      --nuit: #0d0b0a;        /* accueil et final */
+      --whatsapp: #25d366;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--nuit);
-      color: var(--creme);
-      font-family: "Inter", system-ui, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: var(--blanc); color: var(--encre);
+      font-family: "Geist", system-ui, sans-serif; font-weight: 400;
+      line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased;
     }
     img, video { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    h1, h2, h3 { font-family: "Bricolage Grotesque", sans-serif; line-height: 1.08; font-weight: 800; }
-    .conteneur { width: min(1120px, 100% - 32px); margin-inline: auto; }
-    :focus-visible { outline: 3px solid var(--renard-clair); outline-offset: 3px; border-radius: 6px; }
+    h1, h2, h3 { font-weight: 400; letter-spacing: -.035em; line-height: 1.04; }
+    .conteneur { width: min(1200px, 100% - 32px); margin-inline: auto; }
+    :focus-visible { outline: 2px solid var(--renard); outline-offset: 3px; border-radius: 4px; }
 
-    /* ===== Boutons ===== */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 15px 26px; border-radius: 999px; font-weight: 600; line-height: 1.2;
-      transition: background .2s, color .2s;
+      padding: 14px 24px; border-radius: 6px; font-weight: 500; font-size: .95rem; line-height: 1.2;
+      background: var(--renard); color: #fff; transition: background .2s;
     }
-    .btn svg { width: 20px; height: 20px; flex: none; }
-    .btn-plein { background: var(--renard); color: var(--nuit); }
-    .btn-plein:hover { background: var(--renard-clair); }
-    .btn-lien { color: var(--creme); padding-inline: 6px; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--renard); }
-    .btn-lien:hover { color: var(--renard-clair); }
+    .btn:hover { background: var(--renard-fonce); }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+    .btn-clair { background: #fff; color: var(--encre); }
+    .btn-clair:hover { background: #f0ebe5; }
 
-    /* ===== En-tête ===== */
+    /* ===== En-tête (transparent sur l'accueil) ===== */
     header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(22, 18, 15, .92); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--trait);
+      position: fixed; inset: 0 0 auto; z-index: 20; color: #fff;
+      transition: background .3s, color .3s, box-shadow .3s;
     }
-    .barre { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 0; }
-    .logo { display: flex; align-items: center; gap: 10px; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.25rem; }
-    .logo svg { width: 34px; height: 34px; }
-    nav { display: flex; align-items: center; gap: 26px; font-size: .95rem; color: var(--gris); }
-    nav a:hover { color: var(--creme); }
-    nav .btn { padding: 10px 18px; font-size: .9rem; color: var(--nuit); }
-    @media (max-width: 780px) { nav a:not(.btn) { display: none; } }
+    header.plein { background: rgba(255,255,255,.92); backdrop-filter: blur(10px); color: var(--encre); box-shadow: 0 1px 0 var(--filet); }
+    .barre { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 0; }
+    .logo { display: flex; align-items: center; gap: 9px; font-weight: 500; font-size: 1.1rem; letter-spacing: -.02em; }
+    .logo svg { width: 26px; height: 26px; }
+    nav { display: flex; align-items: center; gap: 28px; font-size: .88rem; }
+    nav a:not(.btn) { opacity: .8; }
+    nav a:not(.btn):hover { opacity: 1; }
+    nav .btn { padding: 9px 16px; font-size: .85rem; }
+    @media (max-width: 820px) { nav a:not(.btn) { display: none; } }
 
-    /* ===== Accueil : le texte + un téléphone qui joue une vraie pub ===== */
-    .hero { padding: 64px 0 72px; }
-    .hero .conteneur { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
-    .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.2rem); letter-spacing: -.02em; margin-bottom: 22px; }
-    .hero .intro { color: var(--gris); font-size: 1.15rem; max-width: 34em; margin-bottom: 32px; }
-    .hero .intro strong { color: var(--creme); font-weight: 600; }
-    .actions { display: flex; gap: 12px 20px; flex-wrap: wrap; align-items: center; }
-    .confiance { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--trait); color: var(--gris); font-size: .92rem; }
-    .confiance ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 6px; }
-    .confiance li { color: var(--creme); font-family: "Bricolage Grotesque"; font-weight: 600; font-size: 1.1rem; }
+    /* ===== Accueil : la scène 3D d'Abidjan en plein écran ===== */
+    .hero { position: relative; min-height: 100svh; background: var(--nuit); color: #fff; overflow: hidden; display: flex; align-items: flex-end; }
+    .hero video, .hero .voile { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero video { object-fit: cover; object-position: center 30%; }
+    .hero .voile { background: linear-gradient(180deg, rgba(13,11,10,.35) 0%, rgba(13,11,10,0) 30%, rgba(13,11,10,.45) 52%, rgba(13,11,10,.95) 82%); }
+    .hero .texte { position: relative; padding: 0 0 56px; }
+    .hero h1 { font-size: clamp(2.6rem, 6.5vw, 5.4rem); max-width: 11em; margin-bottom: 18px; }
+    .hero p { font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(255,255,255,.78); max-width: 30em; margin-bottom: 28px; font-weight: 300; }
+    .hero .entree { opacity: 0; transform: translateY(18px); animation: entree 1s cubic-bezier(.2,.7,.2,1) forwards; }
+    .hero .entree:nth-child(2) { animation-delay: .15s; }
+    .hero .entree:nth-child(3) { animation-delay: .3s; }
+    @keyframes entree { to { opacity: 1; transform: none; } }
 
-    .telephone {
-      position: relative; width: min(300px, 78vw); margin-inline: auto;
-      aspect-ratio: 9 / 18.5; padding: 10px; border-radius: 42px;
-      background: #2a231d; border: 1px solid #4a3c30;
-      box-shadow: 0 30px 80px -20px rgba(255, 106, 19, .35);
-      transform: rotate(3deg);
-    }
-    .telephone .ecran { position: relative; height: 100%; border-radius: 33px; overflow: hidden; background: #000; }
-    .telephone video { width: 100%; height: 100%; object-fit: cover; }
-    /* Barre façon statut WhatsApp */
-    .statut { position: absolute; inset: 0 0 auto; padding: 14px 14px 30px; background: linear-gradient(rgba(0,0,0,.55), transparent); }
-    .statut .barres { display: flex; gap: 4px; margin-bottom: 10px; }
-    .statut .barres span { flex: 1; height: 3px; border-radius: 3px; background: rgba(255,255,255,.35); overflow: hidden; }
-    .statut .barres span:first-child { background: #fff; }
-    .statut .barres span.encours::after { content: ""; display: block; height: 100%; width: 0; background: #fff; animation: avance 9s linear infinite; }
-    @keyframes avance { to { width: 100%; } }
-    .statut .qui { display: flex; align-items: center; gap: 9px; font-size: .82rem; color: #fff; line-height: 1.25; }
-    .statut .qui .avatar { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #e9c46a; color: #2b1d05; font-weight: 700; border: 2px solid var(--whatsapp); }
-    .statut .qui small { display: block; opacity: .75; }
-    .telephone .legende { position: absolute; bottom: -38px; left: 0; right: 0; text-align: center; color: var(--gris); font-size: .82rem; transform: rotate(-3deg); }
-
-    @media (max-width: 860px) {
-      .hero { padding: 40px 0 70px; }
-      .hero .conteneur { grid-template-columns: 1fr; gap: 48px; }
-      .telephone { width: min(250px, 70vw); }
+    /* Sur ordinateur : la vidéo verticale occupe la droite, le texte la gauche */
+    @media (min-width: 900px) {
+      .hero { align-items: center; }
+      .hero video { left: auto; width: 58%; object-position: center 25%; }
+      .hero .voile { background:
+        linear-gradient(90deg, var(--nuit) 0%, var(--nuit) 38%, rgba(13,11,10,.55) 52%, rgba(13,11,10,0) 70%),
+        linear-gradient(0deg, rgba(13,11,10,.7) 0%, rgba(13,11,10,0) 30%); }
+      .hero .texte { padding: 120px 0 80px; }
+      .hero h1 { font-size: clamp(2.8rem, 4.6vw, 4.6rem); max-width: 8.5em; }
+      .hero p { max-width: 24em; }
     }
 
     /* ===== Sections ===== */
-    section { padding: 80px 0; }
-    .entete-section { max-width: 40em; margin-bottom: 40px; }
-    .entete-section h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 10px; letter-spacing: -.01em; }
-    .entete-section p { color: var(--gris); }
+    section { padding: clamp(80px, 12vw, 150px) 0; }
+    .titre { text-align: center; max-width: 16em; margin: 0 auto 18px; font-size: clamp(2.1rem, 5vw, 3.6rem); }
+    .sous-titre { text-align: center; color: var(--gris); max-width: 32em; margin: 0 auto; font-size: 1.05rem; font-weight: 300; }
 
-    /* ===== La carte des prix (façon menu) ===== */
-    .carte-prix { list-style: none; border-top: 2px solid var(--creme); }
-    .ligne {
-      display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; align-items: baseline;
-      padding: 24px 0; border-bottom: 1px solid var(--trait);
+    /* ===== Créations flottantes ===== */
+    .flottant { position: relative; overflow: hidden; }
+    .scene { position: relative; height: clamp(500px, 58vw, 640px); margin-top: 40px; }
+    .carte {
+      position: absolute; border-radius: 14px; overflow: hidden; background: #ddd;
+      box-shadow: 0 30px 60px -25px rgba(21,18,15,.45);
+      will-change: transform;
     }
-    .ligne h3 { font-size: clamp(1.3rem, 3vw, 1.75rem); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-    .ligne .nouveau { font-family: "Inter"; font-size: .78rem; font-weight: 600; color: var(--nuit); background: var(--renard); padding: 3px 10px; border-radius: 999px; position: relative; top: -3px; }
-    .ligne .tarif { font-family: "Bricolage Grotesque"; font-weight: 600; font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--renard); white-space: nowrap; text-align: right; }
-    .ligne p { grid-column: 1 / -1; color: var(--gris); max-width: 46em; }
-    .ligne .exemple { color: var(--creme); text-decoration: underline; text-decoration-color: var(--renard); text-underline-offset: 4px; }
-    .aussi { margin-top: 28px; color: var(--gris); }
-    .aussi strong { color: var(--creme); font-weight: 600; }
-    @media (max-width: 560px) {
-      .ligne { grid-template-columns: 1fr; }
-      .ligne .tarif { text-align: left; }
+    .carte img { width: 100%; height: 100%; object-fit: cover; }
+    .carte.c1 { width: clamp(150px, 20vw, 260px); aspect-ratio: 9/16; left: 4%;  top: 8%;  --r: -7deg; }
+    .carte.c2 { width: clamp(120px, 15vw, 200px); aspect-ratio: 1;    left: 28%; top: 52%; --r: 5deg; }
+    .carte.c3 { width: clamp(170px, 22vw, 290px); aspect-ratio: 9/16; left: 41%; top: 2%;  --r: 2deg; }
+    .carte.c4 { width: clamp(120px, 15vw, 200px); aspect-ratio: 9/16; left: 66%; top: 34%; --r: -4deg; }
+    .carte.c5 { width: clamp(130px, 17vw, 220px); aspect-ratio: 9/16; left: 82%; top: 4%;  --r: 8deg; }
+    .carte { transform: rotate(var(--r)) translateY(var(--y, 0px)); }
+    .carte figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(255,255,255,.92); color: var(--encre); font-size: .72rem; font-weight: 500; padding: 4px 9px; border-radius: 4px; }
+    @media (max-width: 640px) {
+      .scene { height: 560px; }
+      .carte.c1 { left: -4%; top: 4%; }
+      .carte.c2 { left: 6%;  top: 60%; }
+      .carte.c3 { left: 32%; top: 18%; }
+      .carte.c4 { left: 60%; top: 58%; }
+      .carte.c5 { left: 70%; top: 0; }
     }
 
-    /* ===== Réalisations ===== */
-    .portfolio { background: #1c1713; }
-    .filtres { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-    .filtres button {
-      font: inherit; font-weight: 600; font-size: .92rem; cursor: pointer; padding: 9px 18px; border-radius: 999px;
-      background: transparent; color: var(--creme); border: 1px solid #4a3a2c;
+    /* ===== Services en images ===== */
+    .services { background: var(--papier); }
+    .grille { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+    .service { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; color: #fff; background: #222; }
+    .service img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .service:hover img { transform: scale(1.04); }
+    .service .infos { position: absolute; inset: auto 0 0; padding: 60px 18px 18px; background: linear-gradient(transparent, rgba(0,0,0,.78)); }
+    .service h3 { font-size: 1.3rem; margin-bottom: 4px; letter-spacing: -.02em; }
+    .service .prix { font-size: .88rem; color: rgba(255,255,255,.8); }
+    .service .nouveau { position: absolute; top: 14px; left: 14px; background: var(--renard); color: #fff; font-size: .75rem; font-weight: 500; padding: 4px 10px; border-radius: 4px; }
+    .aussi { text-align: center; margin-top: 32px; color: var(--gris); font-size: .95rem; }
+    @media (max-width: 900px) { .grille { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .grille { gap: 10px; } .service h3 { font-size: 1.05rem; } .service .infos { padding: 40px 12px 12px; } }
+
+    /* ===== Réalisations : défilement horizontal ===== */
+    .rangee {
+      display: grid; grid-auto-flow: column; grid-auto-columns: clamp(220px, 26vw, 300px); gap: 18px;
+      overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px max(16px, calc((100vw - 1200px) / 2)) 24px;
+      margin-top: 56px; scrollbar-width: thin;
     }
-    .filtres button[aria-pressed="true"] { background: var(--creme); color: var(--nuit); border-color: var(--creme); }
-    .galerie { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; align-items: start; }
-    .galerie figure { background: var(--nuit-2); border-radius: 16px; overflow: hidden; }
-    .galerie figure[hidden] { display: none; }
-    .galerie .media { aspect-ratio: 9 / 16; background: #000; }
-    .galerie .media img, .galerie .media video { width: 100%; height: 100%; object-fit: cover; }
-    .galerie figcaption { padding: 13px 16px 16px; color: var(--gris); font-size: .88rem; line-height: 1.45; }
-    .galerie figcaption strong { color: var(--creme); display: block; font-size: .95rem; margin-bottom: 2px; }
-    .galerie figcaption .type { color: var(--renard); font-weight: 600; }
-    .galerie figcaption a { display: inline-block; margin-top: 8px; color: var(--renard); font-weight: 600; }
-    .galerie .appel {
-      display: grid; place-items: center; text-align: center; padding: 36px 22px; aspect-ratio: 9 / 16;
-      border: 2px dashed var(--renard); background: transparent;
-    }
-    .galerie .appel h3 { font-size: 1.5rem; margin-bottom: 10px; }
-    .galerie .appel p { color: var(--gris); margin-bottom: 20px; font-size: .95rem; }
-    @media (max-width: 520px) {
-      .galerie { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .galerie figcaption { padding: 10px 11px 12px; font-size: .8rem; }
-      .galerie .appel { grid-column: 1 / -1; aspect-ratio: auto; }
-    }
+    .rangee figure { scroll-snap-align: start; }
+    .rangee .media { aspect-ratio: 9/16; border-radius: 12px; overflow: hidden; background: #111; }
+    .rangee .media img, .rangee .media video { width: 100%; height: 100%; object-fit: cover; }
+    .rangee figcaption { padding: 12px 2px 0; font-size: .9rem; color: var(--gris); }
+    .rangee figcaption strong { display: block; color: var(--encre); font-weight: 500; }
+    .rangee figcaption a { color: var(--renard); font-weight: 500; }
+    .astuce { text-align: center; color: var(--gris); font-size: .85rem; margin-top: 4px; }
 
     /* ===== Qui suis-je ===== */
-    .qui-suis-je { display: grid; grid-template-columns: minmax(0, 380px) 1fr; gap: 56px; align-items: center; }
-    .qui-suis-je img { width: 100%; height: auto; border-radius: 24px; }
-    .qui-suis-je h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 18px; }
-    .qui-suis-je p { color: var(--gris); font-size: 1.08rem; max-width: 34em; margin-bottom: 14px; }
-    .qui-suis-je .btn { margin-top: 12px; }
-    @media (max-width: 760px) {
-      .qui-suis-je { grid-template-columns: 1fr; gap: 28px; }
-      .qui-suis-je img { max-width: 320px; }
+    .qui { background: var(--papier); }
+    .qui .conteneur { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 90px); align-items: center; }
+    .qui img { width: 100%; max-width: 440px; aspect-ratio: 4/5; height: auto; object-fit: cover; object-position: center 35%; border-radius: 14px; justify-self: end; }
+    .qui h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 22px; }
+    .qui p { color: var(--gris); font-size: 1.08rem; font-weight: 300; max-width: 30em; margin-bottom: 14px; }
+    .qui .btn { margin-top: 14px; }
+    @media (max-width: 800px) {
+      .qui .conteneur { grid-template-columns: 1fr; }
+      .qui img { justify-self: center; max-width: 340px; }
     }
 
-    /* ===== Étapes (vraie séquence, donc numérotées) ===== */
-    .etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; counter-reset: etape; border-top: 2px solid var(--creme); }
-    .etape { padding: 26px 26px 10px 0; }
-    .etape + .etape { padding-left: 26px; border-left: 1px solid var(--trait); }
-    .etape::before {
-      counter-increment: etape; content: counter(etape);
-      display: block; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 3rem; line-height: 1; color: var(--renard); margin-bottom: 14px;
-    }
-    .etape h3 { font-size: 1.3rem; margin-bottom: 6px; }
-    .etape p { color: var(--gris); font-size: .95rem; }
-    @media (max-width: 720px) {
-      .etapes { grid-template-columns: 1fr; }
-      .etape, .etape + .etape { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--trait); }
-    }
+    /* ===== Étapes (vraie séquence) ===== */
+    .etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 64px; counter-reset: etape; }
+    .etape { border-top: 1px solid var(--encre); padding-top: 20px; }
+    .etape::before { counter-increment: etape; content: "0" counter(etape); display: block; font-size: .85rem; color: var(--renard); font-weight: 500; margin-bottom: 26px; }
+    .etape h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .etape p { color: var(--gris); font-weight: 300; }
+    @media (max-width: 720px) { .etapes { grid-template-columns: 1fr; gap: 32px; } }
 
-    /* ===== Contact ===== */
-    .contact {
-      background: var(--renard); color: var(--nuit);
-      border-radius: 28px; padding: clamp(40px, 7vw, 72px) clamp(24px, 6vw, 64px); margin-bottom: 80px;
-    }
-    .contact h2 { font-size: clamp(2rem, 6vw, 3.6rem); margin-bottom: 12px; max-width: 14em; }
-    .contact p { max-width: 34em; margin-bottom: 28px; font-size: 1.05rem; }
-    .contact .btn-plein { background: var(--nuit); color: var(--creme); }
-    .contact .btn-plein:hover { background: #000; }
-    .contact .btn-lien { color: var(--nuit); text-decoration-color: var(--nuit); }
-    .contact .infos { margin-top: 26px; font-weight: 600; font-size: .95rem; }
-    .contact :focus-visible { outline-color: var(--nuit); }
+    /* ===== Final noir avec la courbe orange ===== */
+    .final { position: relative; background: var(--nuit); color: #fff; overflow: hidden; padding-bottom: 40px; }
+    .final svg.courbe { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .final .courbe path { fill: none; stroke: var(--renard); stroke-width: 2; filter: url(#lueur); stroke-dasharray: 2400; stroke-dashoffset: 2400; transition: stroke-dashoffset 2.6s cubic-bezier(.3,.6,.2,1); }
+    .final.visible .courbe path { stroke-dashoffset: 0; }
+    .final .contenu { position: relative; text-align: center; padding: clamp(40px, 8vw, 90px) 0 clamp(80px, 12vw, 140px); }
+    .final h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 12em; margin: 0 auto 20px; }
+    .final p { color: rgba(255,255,255,.7); font-weight: 300; max-width: 28em; margin: 0 auto 34px; font-size: 1.05rem; }
+    .final .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .final .lien { color: rgba(255,255,255,.85); padding: 14px 10px; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: rgba(255,255,255,.35); }
+    footer { position: relative; border-top: 1px solid rgba(255,255,255,.12); padding-top: 22px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: rgba(255,255,255,.5); font-size: .82rem; }
 
-    footer { padding: 28px 0 100px; color: var(--gris); font-size: .85rem; border-top: 1px solid var(--trait); }
-
-    /* ===== Bouton WhatsApp flottant ===== */
+    /* ===== Bouton WhatsApp flottant (apparaît après l'accueil) ===== */
     .wa-flottant {
       position: fixed; right: 16px; bottom: 16px; z-index: 30;
-      display: flex; align-items: center; gap: 8px; padding: 13px 18px 13px 14px; border-radius: 999px;
-      background: var(--whatsapp); color: #062b14; font-weight: 600; font-size: .95rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,.45);
+      display: flex; align-items: center; gap: 8px; padding: 12px 18px 12px 14px; border-radius: 999px;
+      background: var(--whatsapp); color: #052b13; font-weight: 500; font-size: .92rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+      opacity: 0; transform: translateY(20px); pointer-events: none; transition: opacity .3s, transform .3s;
     }
-    .wa-flottant svg { width: 24px; height: 24px; }
+    .wa-flottant.visible { opacity: 1; transform: none; pointer-events: auto; }
+    .wa-flottant svg { width: 22px; height: 22px; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .statut .barres span.encours::after { animation: none; width: 100%; }
-      .telephone, .telephone .legende { transform: none; }
+      .hero .entree { animation: none; opacity: 1; transform: none; }
+      .final .courbe path { transition: none; stroke-dashoffset: 0; }
+      .service img { transition: none; }
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <header id="entete">
     <div class="conteneur barre">
       <a href="#" class="logo" aria-label="Bayano Studio, retour en haut">
         <svg viewBox="0 0 64 64" aria-hidden="true">
           <polygon points="6,6 24,22 40,22 58,6 58,30 32,60 6,30" fill="#ff6a13"/>
           <polygon points="12,32 32,58 30,40" fill="#fff4e8"/>
           <polygon points="52,32 32,58 34,40" fill="#fff4e8"/>
-          <circle cx="32" cy="56" r="3.5" fill="#16120f"/>
         </svg>
-        Bayano Studio
+        bayano studio
       </a>
       <nav aria-label="Menu principal">
-        <a href="#tarifs">Tarifs</a>
-        <a href="#portfolio">Réalisations</a>
+        <a href="#services">Services</a>
+        <a href="#realisations">Réalisations</a>
         <a href="#qui">Qui suis-je</a>
-        <a href="#etapes">Comment ça marche</a>
-        <a class="btn btn-plein" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">Devis gratuit</a>
+        <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">Devis gratuit</a>
       </nav>
     </div>
   </header>
 
   <main>
     <!-- ===== ACCUEIL ===== -->
-    <section class="hero">
-      <div class="conteneur">
-        <div>
-          <h1>Des pubs qui font vendre, créées avec l'IA à Abidjan.</h1>
-          <p class="intro">Affiches, vidéos pour vos statuts WhatsApp et TikTok, photos produits et sites boutique. <strong>Le rendu d'une agence, au prix d'une affiche</strong>, et tout se règle sur WhatsApp.</p>
-          <div class="actions">
-            <a class="btn btn-plein" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
-              Demander un devis sur WhatsApp
-            </a>
-            <a class="btn btn-lien" href="#portfolio">Voir mes réalisations</a>
-          </div>
-          <div class="confiance">
-            Ils m'ont fait confiance
-            <ul>
-              <li>ASLY Beaux Yeux</li>
-              <li>SuperShine</li>
-              <li>Almade Snkrs</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="telephone">
-          <div class="ecran">
-            <video id="video-hero" src="images/hero-boucle.mp4" poster="images/asly-pub-studio-apercu.jpg" muted loop playsinline preload="metadata" aria-label="Extrait de la pub vidéo ASLY Beaux Yeux"></video>
-            <div class="statut" aria-hidden="true">
-              <div class="barres"><span></span><span class="encours"></span><span></span></div>
-              <div class="qui">
-                <span class="avatar">A</span>
-                <span>ASLY Beaux Yeux<small>il y a 5 min</small></span>
-              </div>
-            </div>
-          </div>
-          <p class="legende">Pub réalisée pour ASLY Beaux Yeux</p>
+    <section class="hero" aria-label="Accueil">
+      <video id="video-hero" src="images/hero-abidjan.mp4" poster="images/hero-abidjan.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="voile"></div>
+      <div class="conteneur texte">
+        <h1 class="entree">Des pubs qui font vendre, créées avec l'IA.</h1>
+        <p class="entree">Affiches, vidéos, photos produits et sites boutique pour les commerces d'Abidjan.</p>
+        <div class="entree">
+          <a class="btn btn-clair" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">Demander un devis</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== TARIFS ===== -->
-    <section id="tarifs">
+    <!-- ===== CRÉATIONS FLOTTANTES ===== -->
+    <section class="flottant" aria-labelledby="t-niveau">
       <div class="conteneur">
-        <div class="entete-section">
-          <h2>Ce que je fais pour vous</h2>
-          <p>Des prix clairs. Pour les projets sur devis, écrivez-moi : la réponse est gratuite et rapide.</p>
+        <h2 class="titre" id="t-niveau">Le rendu d'une agence, au prix d'une affiche</h2>
+        <p class="sous-titre">Pour les commerçants et les PME qui veulent se démarquer sur WhatsApp, TikTok et Instagram.</p>
+      </div>
+      <div class="scene" id="scene">
+        <figure class="carte c1" data-vitesse="0.10"><img src="images/asly-affiche-noir-statut.jpg" alt="Affiche ASLY Beaux Yeux, version nuit" loading="lazy"><figcaption>Affiche</figcaption></figure>
+        <figure class="carte c2" data-vitesse="-0.06"><img src="images/asly-affiche-ivoire-carre.jpg" alt="Affiche ASLY Beaux Yeux, version ivoire, format carré" loading="lazy"><figcaption>Post Instagram</figcaption></figure>
+        <figure class="carte c3" data-vitesse="0.04"><img src="images/asly-pub-studio-apercu.jpg" alt="Image de la pub vidéo ASLY Beaux Yeux" loading="lazy"><figcaption>Pub vidéo</figcaption></figure>
+        <figure class="carte c4" data-vitesse="-0.10"><img src="images/almade-site-mobile.jpg" alt="Site boutique Almade Snkrs sur téléphone" loading="lazy"><figcaption>Site boutique</figcaption></figure>
+        <figure class="carte c5" data-vitesse="0.08"><img src="images/asly-affiche-ivoire-statut.jpg" alt="Affiche ASLY Beaux Yeux, version ivoire" loading="lazy"><figcaption>Statut WhatsApp</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services" aria-labelledby="t-services">
+      <div class="conteneur">
+        <h2 class="titre" id="t-services">Ce que je crée pour vous</h2>
+        <p class="sous-titre">Tout se commande sur WhatsApp. Le devis est gratuit.</p>
+        <div class="grille">
+          <a class="service" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20une%20affiche." target="_blank" rel="noopener noreferrer">
+            <img src="images/asly-affiche-noir-carre.jpg" alt="" loading="lazy">
+            <div class="infos"><h3>Affiches</h3><span class="prix">À partir de 5 000 FCFA</span></div>
+          </a>
+          <a class="service" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20une%20pub%20vid%C3%A9o." target="_blank" rel="noopener noreferrer">
+            <img src="images/asly-pub-videos-apercu.jpg" alt="" loading="lazy">
+            <div class="infos"><h3>Pubs vidéo</h3><span class="prix">Sur devis</span></div>
+          </a>
+          <a class="service" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20un%20site%20boutique." target="_blank" rel="noopener noreferrer">
+            <span class="nouveau">Nouveau</span>
+            <img src="images/almade-site-mobile.jpg" alt="" loading="lazy">
+            <div class="infos"><h3>Sites boutique</h3><span class="prix">Wave et Orange Money · sur devis</span></div>
+          </a>
+          <a class="service" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20des%20photos%20produits." target="_blank" rel="noopener noreferrer">
+            <img src="images/asly-pub-studio-apercu.jpg" alt="" loading="lazy">
+            <div class="infos"><h3>Photos produits</h3><span class="prix">Sur devis</span></div>
+          </a>
         </div>
-        <ul class="carte-prix">
-          <li class="ligne">
-            <h3>Affiches et visuels réseaux sociaux</h3>
-            <span class="tarif">À partir de 5 000 FCFA</span>
-            <p>Promos, nouveautés, événements. Aux bons formats pour le statut WhatsApp, Facebook, Instagram et TikTok.</p>
-          </li>
-          <li class="ligne">
-            <h3>Pubs vidéo</h3>
-            <span class="tarif">Sur devis</span>
-            <p>Des vidéos courtes qui arrêtent le pouce : mise en scène de vos produits, voix off, sous-titres lisibles même sans le son.</p>
-          </li>
-          <li class="ligne">
-            <h3>Sites web boutique <span class="nouveau">Nouveau</span></h3>
-            <span class="tarif">Sur devis</span>
-            <p>Votre catalogue en ligne : vos clients choisissent, la commande arrive sur votre WhatsApp, paiement Wave ou Orange Money. Vous ajoutez vos produits vous-même depuis votre téléphone. <a class="exemple" href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer">Voir un exemple en ligne</a></p>
-          </li>
-          <li class="ligne">
-            <h3>Photos produits et retouche</h3>
-            <span class="tarif">Sur devis</span>
-            <p>Détourage propre et mise en scène studio, même à partir d'une photo prise au téléphone.</p>
-          </li>
-        </ul>
-        <p class="aussi"><strong>Aussi sur demande :</strong> cartes de visite, menus et catalogues, slogans et textes pub, scripts vidéo.</p>
+        <p class="aussi">Aussi : cartes de visite, menus, catalogues, slogans et scripts vidéo.</p>
       </div>
     </section>
 
     <!-- ===== RÉALISATIONS ===== -->
-    <section id="portfolio" class="portfolio">
+    <section id="realisations" aria-labelledby="t-real">
       <div class="conteneur">
-        <div class="entete-section">
-          <h2>Mes réalisations</h2>
-          <p>Des travaux livrés à de vrais clients. Appuyez sur une vidéo pour la lancer avec le son.</p>
-        </div>
-
-        <div class="filtres" role="group" aria-label="Filtrer les réalisations">
-          <button type="button" aria-pressed="true" data-filtre="tout">Tout</button>
-          <button type="button" aria-pressed="false" data-filtre="video">Pubs vidéo</button>
-          <button type="button" aria-pressed="false" data-filtre="affiche">Affiches</button>
-          <button type="button" aria-pressed="false" data-filtre="site">Sites web</button>
-        </div>
-
-        <div class="galerie">
-          <figure data-type="video">
-            <div class="media"><video src="images/asly-pub-studio.mp4" poster="images/asly-pub-studio-apercu.jpg" controls playsinline preload="none"></video></div>
-            <figcaption><strong>ASLY Beaux Yeux</strong><span class="type">Pub vidéo</span> · parfums mis en scène en studio, 30 s</figcaption>
-          </figure>
-          <figure data-type="affiche">
-            <div class="media"><img src="images/asly-affiche-noir-statut.jpg" alt="Affiche ASLY Beaux Yeux, version nuit, format statut" loading="lazy"></div>
-            <figcaption><strong>ASLY Beaux Yeux</strong><span class="type">Affiche</span> · version nuit, statut WhatsApp</figcaption>
-          </figure>
-          <figure data-type="site">
-            <a class="media" href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer"><img src="images/almade-site-mobile.jpg" alt="Page d'accueil du site Almade Snkrs sur téléphone" loading="lazy"></a>
-            <figcaption><strong>Almade Snkrs</strong><span class="type">Site boutique</span> · catalogue de sneakers, panier WhatsApp, Wave et Orange Money<br><a href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer">Voir le site en ligne</a></figcaption>
-          </figure>
-          <figure data-type="video">
-            <div class="media"><video src="images/asly-pub-videos.mp4" poster="images/asly-pub-videos-apercu.jpg" controls playsinline preload="none"></video></div>
-            <figcaption><strong>ASLY Beaux Yeux</strong><span class="type">Pub vidéo</span> · images réelles de la boutique, 30 s</figcaption>
-          </figure>
-          <figure data-type="affiche">
-            <div class="media"><img src="images/asly-affiche-ivoire-statut.jpg" alt="Affiche ASLY Beaux Yeux, version ivoire, format statut" loading="lazy"></div>
-            <figcaption><strong>ASLY Beaux Yeux</strong><span class="type">Affiche</span> · version ivoire, statut WhatsApp</figcaption>
-          </figure>
-          <figure class="appel" data-type="tout">
-            <div>
-              <h3>Votre pub ici ?</h3>
-              <p>Envoyez-moi une photo de votre produit, je m'occupe du reste.</p>
-              <a class="btn btn-plein" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20une%20pub%20pour%20mon%20produit." target="_blank" rel="noopener noreferrer">Je veux ma pub</a>
-            </div>
-          </figure>
-        </div>
+        <h2 class="titre" id="t-real">Réalisations</h2>
+        <p class="sous-titre">Des travaux livrés à de vrais clients.</p>
       </div>
+      <div class="rangee">
+        <figure>
+          <div class="media"><video src="images/asly-pub-studio.mp4" poster="images/asly-pub-studio-apercu.jpg" controls playsinline preload="none"></video></div>
+          <figcaption><strong>ASLY Beaux Yeux</strong>Pub vidéo en studio, 30 s</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><img src="images/asly-affiche-noir-statut.jpg" alt="Affiche ASLY Beaux Yeux, version nuit" loading="lazy"></div>
+          <figcaption><strong>ASLY Beaux Yeux</strong>Affiche statut, version nuit</figcaption>
+        </figure>
+        <figure>
+          <a class="media" href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer"><img src="images/almade-site-mobile.jpg" alt="Site Almade Snkrs sur téléphone" loading="lazy"></a>
+          <figcaption><strong>Almade Snkrs</strong>Site boutique · <a href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer">voir en ligne</a></figcaption>
+        </figure>
+        <figure>
+          <div class="media"><video src="images/asly-pub-videos.mp4" poster="images/asly-pub-videos-apercu.jpg" controls playsinline preload="none"></video></div>
+          <figcaption><strong>ASLY Beaux Yeux</strong>Pub vidéo en boutique, 30 s</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><img src="images/asly-affiche-ivoire-statut.jpg" alt="Affiche ASLY Beaux Yeux, version ivoire" loading="lazy"></div>
+          <figcaption><strong>ASLY Beaux Yeux</strong>Affiche statut, version ivoire</figcaption>
+        </figure>
+      </div>
+      <p class="astuce">Faites glisser pour voir la suite.</p>
     </section>
 
     <!-- ===== QUI SUIS-JE ===== -->
-    <section id="qui">
-      <div class="conteneur qui-suis-je">
-        <img src="images/renard-studio.jpg" alt="Renard, fondateur de Bayano Studio, dans son studio à Abidjan (avatar 3D)" loading="lazy" width="720" height="1280">
+    <section class="qui" id="qui" aria-labelledby="t-qui">
+      <div class="conteneur">
+        <img src="images/renard-studio.jpg" alt="Renard, fondateur de Bayano Studio, dans son studio (avatar 3D)" loading="lazy" width="720" height="1280">
         <div>
-          <h2>Derrière Bayano Studio</h2>
-          <p>Moi, c'est Renard. Diplômé en marketing, je vis à Abidjan et je crée des pubs avec les meilleurs outils d'intelligence artificielle.</p>
-          <p>Mon idée est simple : donner aux commerçants et aux PME d'ici des pubs du niveau des grandes marques, en m'inspirant des meilleures méthodes venues d'ailleurs, mais à un prix adapté à leur budget.</p>
-          <p>Vous me parlez directement, du premier message à la livraison.</p>
-          <a class="btn btn-plein" href="https://wa.me/2250141377402?text=Bonjour%20Renard%2C%20je%20voudrais%20parler%20de%20mon%20projet." target="_blank" rel="noopener noreferrer">Me parler sur WhatsApp</a>
+          <h2 id="t-qui">Derrière Bayano Studio</h2>
+          <p>Moi, c'est Renard. Diplômé en marketing, je crée à Abidjan des pubs avec les meilleurs outils d'intelligence artificielle.</p>
+          <p>Mon objectif : donner aux commerces d'ici des pubs du niveau des grandes marques, à un prix adapté à leur budget.</p>
+          <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%20Renard%2C%20je%20voudrais%20parler%20de%20mon%20projet." target="_blank" rel="noopener noreferrer">Me parler sur WhatsApp</a>
         </div>
       </div>
     </section>
 
     <!-- ===== COMMENT ÇA MARCHE ===== -->
-    <section id="etapes">
+    <section aria-labelledby="t-etapes">
       <div class="conteneur">
-        <div class="entete-section">
-          <h2>Tout se fait à distance</h2>
-          <p>Pas besoin de vous déplacer : on avance ensemble sur WhatsApp.</p>
-        </div>
+        <h2 class="titre" id="t-etapes">Tout se fait à distance</h2>
         <ol class="etapes">
-          <li class="etape">
-            <h3>Vous m'écrivez</h3>
-            <p>Votre besoin et les photos de vos produits, directement sur WhatsApp.</p>
-          </li>
-          <li class="etape">
-            <h3>Je crée</h3>
-            <p>Je réalise votre visuel, votre vidéo ou votre site et je vous l'envoie pour validation.</p>
-          </li>
-          <li class="etape">
-            <h3>Vous publiez</h3>
-            <p>Vous recevez les fichiers finaux, prêts à poster et à vendre.</p>
-          </li>
+          <li class="etape"><h3>Vous m'écrivez</h3><p>Votre besoin et les photos de vos produits, sur WhatsApp.</p></li>
+          <li class="etape"><h3>Je crée</h3><p>Je vous envoie le résultat pour validation.</p></li>
+          <li class="etape"><h3>Vous publiez</h3><p>Vous recevez les fichiers finaux, prêts à vendre.</p></li>
         </ol>
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <div class="conteneur">
-      <div id="contact" class="contact">
-        <h2>Dites-moi ce que vous vendez.</h2>
-        <p>Je m'occupe de le rendre irrésistible. Le devis est gratuit, la réponse arrive dans la journée.</p>
-        <div class="actions">
-          <a class="btn btn-plein" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">WhatsApp : +225 01 41 37 74 02</a>
-          <a class="btn btn-lien" href="mailto:bayano.pro.marketing@gmail.com">Écrire un e-mail</a>
+    <!-- ===== FINAL ===== -->
+    <section class="final" id="contact" aria-labelledby="t-final">
+      <svg class="courbe" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+        <defs><filter id="lueur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6" result="flou"/><feMerge><feMergeNode in="flou"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <path d="M-40 620 C 380 600, 760 520, 1040 360 S 1380 60, 1500 -40"/>
+      </svg>
+      <div class="conteneur">
+        <div class="contenu">
+          <h2 id="t-final">Dites-moi ce que vous vendez.</h2>
+          <p>Je m'occupe de le rendre irrésistible. Réponse dans la journée.</p>
+          <div class="actions">
+            <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">WhatsApp : +225 01 41 37 74 02</a>
+            <a class="lien" href="mailto:bayano.pro.marketing@gmail.com">bayano.pro.marketing@gmail.com</a>
+          </div>
         </div>
-        <p class="infos">bayano.pro.marketing@gmail.com, Abidjan, Côte d'Ivoire</p>
+        <footer>
+          <span>© 2026 Bayano Studio, Abidjan</span>
+          <span>Créé avec un peu d'IA</span>
+        </footer>
       </div>
-    </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="conteneur">© 2026 Bayano Studio. Créé à Abidjan, avec un peu d'IA.</div>
-  </footer>
-
-  <a class="wa-flottant" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer" aria-label="Écrire à Bayano Studio sur WhatsApp">
+  <a class="wa-flottant" id="wa" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer" aria-label="Écrire à Bayano Studio sur WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
     WhatsApp
   </a>
 
   <script>
-    // Vidéo de l'accueil : lecture automatique (sans son), sauf si l'appareil demande moins d'animations
+    var calme = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Vidéo de l'accueil : lecture automatique sans son
     var videoHero = document.getElementById("video-hero");
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      videoHero.play().catch(function () {});
+    if (!calme) { videoHero.play().catch(function () {}); }
+
+    // En-tête blanc + bouton WhatsApp flottant une fois l'accueil dépassé
+    var entete = document.getElementById("entete");
+    var wa = document.getElementById("wa");
+    var cartes = document.querySelectorAll(".carte");
+    var scene = document.getElementById("scene");
+    var enAttente = false;
+
+    function surDefilement() {
+      var y = window.scrollY;
+      var bas = window.innerHeight * 0.85;
+      entete.classList.toggle("plein", y > bas);
+      wa.classList.toggle("visible", y > bas);
+      // Les créations flottent à des vitesses différentes
+      if (!calme) {
+        var milieu = scene.getBoundingClientRect().top + scene.offsetHeight / 2 - window.innerHeight / 2;
+        cartes.forEach(function (c) { c.style.setProperty("--y", (milieu * parseFloat(c.dataset.vitesse)).toFixed(1) + "px"); });
+      }
+      enAttente = false;
     }
+    window.addEventListener("scroll", function () {
+      if (!enAttente) { enAttente = true; requestAnimationFrame(surDefilement); }
+    }, { passive: true });
+    surDefilement();
 
-    // Filtres des réalisations : affiche seulement le type choisi
-    var boutons = document.querySelectorAll(".filtres button");
-    boutons.forEach(function (bouton) {
-      bouton.addEventListener("click", function () {
-        var filtre = bouton.dataset.filtre;
-        boutons.forEach(function (b) { b.setAttribute("aria-pressed", b === bouton ? "true" : "false"); });
-        document.querySelectorAll(".galerie figure").forEach(function (fig) {
-          var type = fig.dataset.type;
-          fig.hidden = filtre !== "tout" && type !== filtre && type !== "tout";
-        });
-      });
-    });
+    // La courbe orange se dessine quand on arrive en bas
+    var final = document.querySelector(".final");
+    new IntersectionObserver(function (entrees, obs) {
+      if (entrees[0].isIntersecting) { final.classList.add("visible"); obs.disconnect(); }
+    }, { threshold: 0.3 }).observe(final);
 
-    // Une seule vidéo du portfolio joue à la fois
-    document.querySelectorAll(".galerie video").forEach(function (v) {
+    // Une seule vidéo des réalisations joue à la fois
+    document.querySelectorAll(".rangee video").forEach(function (v) {
       v.addEventListener("play", function () {
-        document.querySelectorAll(".galerie video").forEach(function (autre) { if (autre !== v) autre.pause(); });
+        document.querySelectorAll(".rangee video").forEach(function (autre) { if (autre !== v) autre.pause(); });
       });
     });
   </script>
