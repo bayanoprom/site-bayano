@@ -112,10 +112,17 @@
     }
 
     /* ===== Phrase d'accroche ===== */
-    .accroche { padding: clamp(90px, 13vw, 170px) 0; text-align: center; }
-    .accroche h2 { font-size: clamp(2.1rem, 5.4vw, 4rem); max-width: 14em; margin: 0 auto 26px; }
-    .accroche p { color: var(--gris); font-weight: 300; }
-    .accroche p strong { color: var(--texte); font-weight: 400; }
+    .accroche { padding: clamp(100px, 14vw, 190px) 0 clamp(80px, 10vw, 130px); }
+    /* Les mots s'allument un par un au défilement */
+    .mots { font-size: clamp(2rem, 5vw, 4rem); max-width: 19em; line-height: 1.12; }
+    .mots span { opacity: .16; transition: opacity .25s, color .25s, text-shadow .25s; }
+    .mots span.allume { opacity: 1; }
+    .mots span.cle.allume { color: var(--renard); text-shadow: 0 0 24px rgba(255,46,77,.55); }
+    .atouts { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(50px, 7vw, 90px); }
+    .atouts li { padding: 22px 22px 20px; border-radius: 14px; border: 1px solid var(--filet); background: linear-gradient(160deg, rgba(58,160,255,.10), rgba(255,46,77,.06)); }
+    .atouts b { display: block; font-weight: 500; font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -.02em; margin-bottom: 4px; }
+    .atouts span { color: var(--gris); font-weight: 300; font-size: .92rem; }
+    @media (max-width: 720px) { .atouts { grid-template-columns: 1fr; } }
 
     /* ===== Chapitres : un service = une scène du perso ===== */
     .chapitre { padding: clamp(60px, 9vw, 110px) 0; }
@@ -238,12 +245,69 @@
     /* ===== Étapes (vraie séquence) ===== */
     .etapes-section { background: var(--nuit-2); padding: clamp(80px, 11vw, 140px) 0; }
     .etapes-section h2 { text-align: center; font-size: clamp(2rem, 4.4vw, 3.4rem); }
-    .etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 64px; counter-reset: etape; }
-    .etape { border-top: 1px solid rgba(255,255,255,.5); padding-top: 20px; }
-    .etape::before { counter-increment: etape; content: "0" counter(etape); display: block; font-size: .85rem; color: var(--renard); font-weight: 500; margin-bottom: 26px; }
-    .etape h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    /* Ligne néon qui relie les étapes et s'allume quand la section apparaît */
+    .etapes { position: relative; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; counter-reset: etape; padding-top: 34px; }
+    .etapes::before, .etapes::after { content: ""; position: absolute; top: 14px; left: 14px; right: 14px; height: 2px; }
+    .etapes::before { background: rgba(255,255,255,.1); }
+    .etapes::after { background: linear-gradient(90deg, var(--renard), #3aa0ff); box-shadow: 0 0 12px rgba(255,46,77,.7); transform-origin: left; transform: scaleX(0); transition: transform 2s cubic-bezier(.5,0,.2,1) .2s; }
+    .vu .etapes::after { transform: scaleX(1); }
+    .etape { position: relative; }
+    .etape::before {
+      counter-increment: etape; content: counter(etape);
+      position: absolute; top: -34px; left: 0; width: 30px; height: 30px; border-radius: 50%;
+      display: grid; place-items: center; font-size: .82rem; font-weight: 500;
+      background: var(--nuit-2); border: 2px solid rgba(255,255,255,.25); color: var(--gris);
+      transition: background .4s, border-color .4s, color .4s, box-shadow .4s;
+    }
+    .vu .etape::before { background: var(--renard); border-color: var(--renard); color: #fff; box-shadow: 0 0 16px rgba(255,46,77,.8); }
+    .vu .etape:nth-child(1)::before { transition-delay: .2s; }
+    .vu .etape:nth-child(2)::before { transition-delay: 1.1s; }
+    .vu .etape:nth-child(3)::before { transition-delay: 2s; }
+    .etape h3 { font-size: 1.5rem; margin: 22px 0 8px; }
     .etape p { color: var(--gris); font-weight: 300; }
-    @media (max-width: 720px) { .etapes { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* Mini-scènes de chaque étape */
+    .maquette { height: 190px; border-radius: 14px; border: 1px solid var(--filet); background: #0d1528; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; overflow: hidden; }
+    .bulle { max-width: 82%; padding: 8px 11px; border-radius: 10px; font-size: .8rem; line-height: 1.35; opacity: 0; transform: translateY(10px); transition: opacity .5s, transform .5s; }
+    .bulle.client { align-self: flex-start; background: #1f2c47; border-top-left-radius: 2px; }
+    .bulle.moi { align-self: flex-end; background: #0f5a44; border-top-right-radius: 2px; }
+    .bulle.moi i { font-style: normal; color: #53bdeb; font-size: .72rem; margin-left: 4px; }
+    .bulle.photo { display: flex; gap: 5px; padding: 5px; }
+    .bulle.photo span { width: 52px; height: 52px; border-radius: 6px; background: linear-gradient(135deg, #3aa0ff, #ff2e4d); }
+    .bulle.photo span + span { background: linear-gradient(135deg, #ffb347, #ff2e4d); }
+    .vu .bulle { opacity: 1; transform: none; }
+    .vu .bulle:nth-child(1) { transition-delay: .4s; }
+    .vu .bulle:nth-child(2) { transition-delay: .8s; }
+    .vu .bulle:nth-child(3) { transition-delay: 1.3s; }
+    .creation { align-items: stretch; }
+    .calques { position: relative; flex: 1; }
+    .calques span { position: absolute; border-radius: 8px; border: 1px solid rgba(58,160,255,.5); background: rgba(58,160,255,.08); }
+    .calques span:nth-child(1) { inset: 6px 40% 30% 6%; }
+    .calques span:nth-child(2) { inset: 26% 8% 10% 34%; border-color: rgba(255,46,77,.6); background: rgba(255,46,77,.1); }
+    .calques span:nth-child(3) { inset: 50% 52% 0 14%; }
+    .progression { height: 6px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .progression i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #3aa0ff, var(--renard)); transform-origin: left; transform: scaleX(.05); transition: transform 1.6s cubic-bezier(.4,0,.2,1) 1.1s; }
+    .vu .progression i { transform: scaleX(1); }
+    .maquette small { color: var(--gris); font-size: .75rem; }
+    .statut { align-items: center; justify-content: center; }
+    .barres-statut { display: flex; gap: 4px; width: 60%; }
+    .barres-statut span { flex: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,.8); }
+    .barres-statut span + span { background: rgba(255,255,255,.25); }
+    .affiche-mini {
+      width: 60%; flex: 1; border-radius: 8px; display: grid; place-content: center; text-align: center;
+      background: radial-gradient(circle at 30% 20%, #3aa0ff, transparent 60%), linear-gradient(160deg, #ff2e4d, #6b0f2a);
+      transform: scale(.85); opacity: .3; transition: transform .6s cubic-bezier(.2,.8,.2,1.3) 2.1s, opacity .6s 2.1s;
+    }
+    .affiche-mini b { font-size: 1.3rem; letter-spacing: .04em; }
+    .affiche-mini small { color: #ffe1e6; }
+    .vu .affiche-mini { transform: none; opacity: 1; }
+    @media (max-width: 720px) {
+      .etapes { grid-template-columns: 1fr; gap: 44px; padding-top: 0; padding-left: 46px; }
+      .etapes::before, .etapes::after { top: 0; bottom: 0; left: 14px; right: auto; width: 2px; height: auto; }
+      .etapes::after { transform-origin: top; transform: scaleY(0); background: linear-gradient(180deg, var(--renard), #3aa0ff); }
+      .vu .etapes::after { transform: scaleY(1); }
+      .etape::before { top: 0; left: -46px; }
+    }
 
     /* ===== Final avec la courbe orange ===== */
     .final { position: relative; overflow: hidden; padding: clamp(80px, 12vw, 140px) 0 40px; }
@@ -366,10 +430,14 @@
     </section>
 
     <!-- ===== ACCROCHE ===== -->
-    <section class="accroche">
-      <div class="conteneur revele">
-        <h2>Le rendu d'une agence, au prix d'une affiche.</h2>
-        <p>Pour les commerçants et les PME qui veulent se démarquer sur <strong>WhatsApp, TikTok et Instagram</strong>.</p>
+    <section class="accroche" id="accroche">
+      <div class="conteneur">
+        <h2 class="mots" id="mots">Le rendu d'une agence, au prix d'une affiche. Pour les commerces d'Abidjan qui veulent se démarquer sur WhatsApp, TikTok et Instagram.</h2>
+        <ul class="atouts revele">
+          <li><b>À partir de 5 000 FCFA</b><span>pour une affiche</span></li>
+          <li><b>Devis gratuit</b><span>réponse dans la journée</span></li>
+          <li><b>100 % WhatsApp</b><span>sans vous déplacer</span></li>
+        </ul>
       </div>
     </section>
 
@@ -475,9 +543,30 @@
       <div class="conteneur revele">
         <h2>Tout se fait à distance</h2>
         <ol class="etapes">
-          <li class="etape"><h3>Vous m'écrivez</h3><p>Votre besoin et les photos de vos produits, sur WhatsApp.</p></li>
-          <li class="etape"><h3>Je crée</h3><p>Je vous envoie le résultat pour validation.</p></li>
-          <li class="etape"><h3>Vous publiez</h3><p>Vous recevez les fichiers finaux, prêts à vendre.</p></li>
+          <li class="etape">
+            <div class="maquette" aria-hidden="true">
+              <div class="bulle client">Bonjour ! Je veux une affiche pour ma promo de vendredi.</div>
+              <div class="bulle client photo"><span></span><span></span></div>
+              <div class="bulle moi">Reçu, je m'en occupe ! <i>✓✓</i></div>
+            </div>
+            <h3>Vous m'écrivez</h3><p>Votre besoin et les photos de vos produits, sur WhatsApp.</p>
+          </li>
+          <li class="etape">
+            <div class="maquette creation" aria-hidden="true">
+              <div class="calques"><span></span><span></span><span></span></div>
+              <div class="progression"><i></i></div>
+              <small>Création en cours…</small>
+            </div>
+            <h3>Je crée</h3><p>Je vous envoie le résultat pour validation.</p>
+          </li>
+          <li class="etape">
+            <div class="maquette statut" aria-hidden="true">
+              <div class="barres-statut"><span></span><span></span></div>
+              <div class="affiche-mini"><b>PROMO</b><small>ce vendredi</small></div>
+              <small>Publié sur votre statut</small>
+            </div>
+            <h3>Vous publiez</h3><p>Vous recevez les fichiers finaux, prêts à vendre.</p>
+          </li>
         </ol>
       </div>
     </section>
@@ -521,11 +610,24 @@
     var entete = document.getElementById("entete");
     var wa = document.getElementById("wa");
     var enAttente = false;
+    // Phrase d'accroche : chaque mot devient un <span> ; les mots importants s'allument en rouge
+    var mots = document.getElementById("mots");
+    var cles = ["agence,", "affiche.", "Abidjan", "WhatsApp,", "TikTok", "Instagram."];
+    mots.innerHTML = mots.textContent.trim().split(/\s+/).map(function (m) {
+      return '<span' + (cles.indexOf(m) > -1 ? ' class="cle"' : '') + '>' + m + '</span>';
+    }).join(" ");
+    var spansMots = mots.querySelectorAll("span");
+
     var holo = document.getElementById("holo");
     function surDefilement() {
       var depasse = window.scrollY > window.innerHeight * 0.85;
       entete.classList.toggle("plein", depasse);
       wa.classList.toggle("visible", depasse);
+      // Accroche : les mots s'allument quand la phrase remonte vers le haut de l'écran
+      var rm = mots.getBoundingClientRect();
+      var pm = calme ? 1 : Math.min(1, Math.max(0, (window.innerHeight * 0.85 - rm.top) / (rm.height + window.innerHeight * 0.35)));
+      var nb = Math.round(pm * spansMots.length);
+      spansMots.forEach(function (s, i) { s.classList.toggle("allume", i < nb); });
       // Hologramme : 0 = perso normal, 1 = perso entièrement transformé
       var r = holo.getBoundingClientRect();
       var p = calme ? 1 : Math.min(1, Math.max(0, -r.top / (r.height - window.innerHeight) * 1.4));
