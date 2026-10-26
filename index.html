@@ -6,9 +6,9 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Bayano Studio | Pubs, affiches et sites web créés avec l'IA à Abidjan</title>
   <meta name="description" content="Bayano Studio, studio créatif à Abidjan : pubs vidéo pour statut WhatsApp et TikTok, affiches à partir de 5 000 FCFA, photos produits et sites boutique avec paiement Wave et Orange Money.">
-  <meta name="theme-color" content="#0d0b0a">
+  <meta name="theme-color" content="#0a1020">
   <link rel="canonical" href="https://bayano-studio.pages.dev/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='6,6 24,22 40,22 58,6 58,30 32,60 6,30' fill='%23ff6a13'/%3E%3Cpolygon points='12,32 32,58 30,40' fill='%23fff4e8'/%3E%3Cpolygon points='52,32 32,58 34,40' fill='%23fff4e8'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='6,6 24,22 40,22 58,6 58,30 32,60 6,30' fill='%23ff2e4d'/%3E%3Cpolygon points='12,32 32,58 30,40' fill='%23fff4e8'/%3E%3Cpolygon points='52,32 32,58 34,40' fill='%23fff4e8'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Bayano Studio">
@@ -41,13 +41,13 @@
   <style>
     /* ===== Couleurs : tout le site reste dans l'ambiance de la scène d'Abidjan ===== */
     :root {
-      --nuit: #0d0b0a;        /* fond principal */
-      --nuit-2: #15110f;      /* sections alternées */
-      --texte: #f4efe9;
-      --gris: #a39a91;        /* texte secondaire */
+      --nuit: #0a1020;        /* fond principal */
+      --nuit-2: #111a2e;      /* sections alternées */
+      --texte: #eef3ff;
+      --gris: #9aa6bf;        /* texte secondaire */
       --filet: rgba(255,255,255,.12);
-      --renard: #ff6a13;      /* LA couleur de la marque */
-      --renard-fonce: #e85a08;
+      --renard: #ff2e4d;      /* rouge néon du B : LA couleur de la marque */
+      --renard-fonce: #e01f3d;
       --neon: #ff2e3a;        /* rouge du B néon, pour les lueurs */
       --whatsapp: #25d366;
     }
@@ -78,7 +78,7 @@
 
     /* ===== En-tête ===== */
     header { position: fixed; inset: 0 0 auto; z-index: 20; transition: background .3s, box-shadow .3s; }
-    header.plein { background: rgba(13,11,10,.85); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--filet); }
+    header.plein { background: rgba(10,16,32,.85); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--filet); }
     .barre { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 0; }
     .logo { display: flex; align-items: center; gap: 9px; font-weight: 500; font-size: 1.1rem; letter-spacing: -.02em; }
     .logo svg { width: 26px; height: 26px; }
@@ -92,7 +92,7 @@
     .hero { position: relative; min-height: 100svh; overflow: hidden; display: flex; align-items: flex-end; }
     .hero video, .hero .voile { position: absolute; inset: 0; width: 100%; height: 100%; }
     .hero video { object-fit: cover; object-position: center 30%; }
-    .hero .voile { background: linear-gradient(180deg, rgba(13,11,10,.35) 0%, rgba(13,11,10,0) 30%, rgba(13,11,10,.45) 52%, rgba(13,11,10,.95) 82%); }
+    .hero .voile { background: linear-gradient(180deg, rgba(10,16,32,.35) 0%, rgba(10,16,32,0) 30%, rgba(10,16,32,.45) 52%, rgba(10,16,32,.95) 82%); }
     .hero .texte { position: relative; padding: 0 0 56px; }
     .hero h1 { font-size: clamp(2.6rem, 6.5vw, 5.4rem); max-width: 11em; margin-bottom: 18px; }
     .hero p { font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(255,255,255,.78); max-width: 30em; margin-bottom: 28px; font-weight: 300; }
@@ -104,8 +104,8 @@
       .hero { align-items: center; }
       .hero video { left: auto; width: 58%; object-position: center 25%; }
       .hero .voile { background:
-        linear-gradient(90deg, var(--nuit) 0%, var(--nuit) 38%, rgba(13,11,10,.55) 52%, rgba(13,11,10,0) 70%),
-        linear-gradient(0deg, rgba(13,11,10,.7) 0%, rgba(13,11,10,0) 30%); }
+        linear-gradient(90deg, var(--nuit) 0%, var(--nuit) 38%, rgba(10,16,32,.55) 52%, rgba(10,16,32,0) 70%),
+        linear-gradient(0deg, rgba(10,16,32,.7) 0%, rgba(10,16,32,0) 30%); }
       .hero .texte { padding: 120px 0 80px; }
       .hero h1 { font-size: clamp(2.8rem, 4.6vw, 4.6rem); max-width: 8.5em; }
       .hero p { max-width: 24em; }
@@ -123,12 +123,12 @@
     .chapitre .conteneur { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
     .chapitre.inverse .plan { order: 2; }
     .plan {
-      position: relative; aspect-ratio: 4/5; border-radius: 16px; overflow: hidden; background: #1c1714;
-      box-shadow: 0 40px 90px -40px rgba(255,46,58,.35);
+      position: relative; aspect-ratio: 4/5; border-radius: 16px; overflow: hidden; background: #141d33;
+      box-shadow: 0 40px 90px -40px rgba(255,46,77,.35);
     }
     .plan img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
     /* Cadre réservé : image du perso à créer */
-    .plan.a-venir { display: grid; place-items: center; border: 1px dashed rgba(255,106,19,.5); box-shadow: none; text-align: center; padding: 24px; color: var(--gris); font-size: .9rem; }
+    .plan.a-venir { display: grid; place-items: center; border: 1px dashed rgba(255,46,77,.5); box-shadow: none; text-align: center; padding: 24px; color: var(--gris); font-size: .9rem; }
     .plan.a-venir strong { display: block; color: var(--renard); font-weight: 500; margin-bottom: 6px; }
     .chapitre h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); margin-bottom: 18px; }
     .chapitre p { color: var(--gris); font-weight: 300; font-size: 1.08rem; max-width: 28em; margin-bottom: 22px; }
@@ -148,20 +148,20 @@
     .carrousel:focus-visible { outline: 2px solid var(--renard); outline-offset: 8px; border-radius: 12px; }
     .fiche {
       position: absolute; left: 50%; top: 0; width: clamp(270px, 30vw, 340px); margin-left: calc(clamp(270px, 30vw, 340px) / -2);
-      background: #1d1815; border: 1px solid var(--filet); border-radius: 16px; overflow: hidden;
+      background: #16213a; border: 1px solid var(--filet); border-radius: 16px; overflow: hidden;
       transition: transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s, filter .6s;
       box-shadow: 0 30px 70px -30px rgba(0,0,0,.8);
     }
-    .fiche.active { border-color: rgba(255,106,19,.55); box-shadow: 0 40px 90px -35px rgba(255,46,58,.45); }
+    .fiche.active { border-color: rgba(255,46,77,.55); box-shadow: 0 40px 90px -35px rgba(255,46,77,.45); }
     .fiche:not(.active) { cursor: pointer; }
     .fiche:not(.active) .corps a { pointer-events: none; }
-    .visuel { aspect-ratio: 4/3; background: #120f0d; }
+    .visuel { aspect-ratio: 4/3; background: #0d1528; }
     .visuel img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
-    .visuel.a-venir { display: grid; place-items: center; padding: 20px; text-align: center; color: var(--gris); font-size: .82rem; border-bottom: 1px dashed rgba(255,106,19,.5); }
+    .visuel.a-venir { display: grid; place-items: center; padding: 20px; text-align: center; color: var(--gris); font-size: .82rem; border-bottom: 1px dashed rgba(255,46,77,.5); }
     .corps { padding: 20px 20px 22px; }
     .corps h3 { font-size: 1.6rem; margin-bottom: 12px; }
     .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-    .tags li { font-size: .75rem; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,106,19,.45); color: #ffb98c; }
+    .tags li { font-size: .75rem; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,46,77,.45); color: #ff9aaa; }
     .corps p { color: var(--gris); font-weight: 300; font-size: .95rem; min-height: 4.4em; margin-bottom: 18px; }
     .pied { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
     .pied .prix { font-size: .88rem; color: var(--gris); }
@@ -279,14 +279,14 @@
     }
     @keyframes rideau { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
     .intro-marque { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-    .intro-marque svg { width: clamp(44px, 6vw, 64px); height: auto; opacity: 0; transform: scale(.6) rotate(-12deg); animation: logo-in .7s cubic-bezier(.2,.8,.2,1.2) .1s forwards; filter: drop-shadow(0 0 18px rgba(255,106,19,.55)); }
+    .intro-marque svg { width: clamp(44px, 6vw, 64px); height: auto; opacity: 0; transform: scale(.6) rotate(-12deg); animation: logo-in .7s cubic-bezier(.2,.8,.2,1.2) .1s forwards; filter: drop-shadow(0 0 18px rgba(255,46,77,.55)); }
     @keyframes logo-in { to { opacity: 1; transform: none; } }
     .intro-mot { display: flex; gap: .28em; font-size: clamp(2.8rem, 11vw, 8.5rem); font-weight: 500; letter-spacing: -.05em; line-height: 1; }
     .intro-mot span { display: inline-flex; overflow: hidden; padding-bottom: .08em; }
     .intro-mot i {
       font-style: normal; display: inline-block; transform: translateY(110%);
       animation: lettre .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(.35s + var(--n) * .05s);
-      background: linear-gradient(100deg, #5e5650 0%, #ffffff 16%, #8f8780 30%, #fff4e8 44%, #ff6a13 56%, #ffd2b0 64%, #7d756e 80%, #ffffff 100%);
+      background: linear-gradient(100deg, #5e5650 0%, #ffffff 16%, #8f8780 30%, #fff4e8 44%, #ff2e4d 56%, #ffc2cc 64%, #7d756e 80%, #ffffff 100%);
       background-size: 400% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
     }
     .intro-mot i { animation-name: lettre, reflet; animation-duration: .7s, 1.6s; animation-timing-function: cubic-bezier(.2,.8,.2,1), ease-in-out; animation-delay: calc(.35s + var(--n) * .05s), .9s; animation-fill-mode: forwards, forwards; }
@@ -313,7 +313,7 @@
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro-marque">
       <svg viewBox="0 0 64 64">
-        <polygon points="6,6 24,22 40,22 58,6 58,30 32,60 6,30" fill="#ff6a13"/>
+        <polygon points="6,6 24,22 40,22 58,6 58,30 32,60 6,30" fill="#ff2e4d"/>
         <polygon points="12,32 32,58 30,40" fill="#fff4e8"/>
         <polygon points="52,32 32,58 34,40" fill="#fff4e8"/>
       </svg>
@@ -336,7 +336,7 @@
     <div class="conteneur barre">
       <a href="#" class="logo" aria-label="Bayano Studio, retour en haut">
         <svg viewBox="0 0 64 64" aria-hidden="true">
-          <polygon points="6,6 24,22 40,22 58,6 58,30 32,60 6,30" fill="#ff6a13"/>
+          <polygon points="6,6 24,22 40,22 58,6 58,30 32,60 6,30" fill="#ff2e4d"/>
           <polygon points="12,32 32,58 30,40" fill="#fff4e8"/>
           <polygon points="52,32 32,58 34,40" fill="#fff4e8"/>
         </svg>
