@@ -141,6 +141,40 @@
       .plan { max-width: 460px; }
     }
 
+    /* ===== Services : carrousel 3D (carte centrale en avant, les autres inclinées) ===== */
+    .services { padding: clamp(80px, 11vw, 140px) 0; background: var(--nuit-2); overflow: hidden; }
+    .titre-services { text-align: center; font-size: clamp(2rem, 4.4vw, 3.4rem); margin-bottom: 48px; }
+    .carrousel { position: relative; height: clamp(540px, 62vw, 600px); perspective: 1400px; outline: none; touch-action: pan-y; }
+    .carrousel:focus-visible { outline: 2px solid var(--renard); outline-offset: 8px; border-radius: 12px; }
+    .fiche {
+      position: absolute; left: 50%; top: 0; width: clamp(270px, 30vw, 340px); margin-left: calc(clamp(270px, 30vw, 340px) / -2);
+      background: #1d1815; border: 1px solid var(--filet); border-radius: 16px; overflow: hidden;
+      transition: transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s, filter .6s;
+      box-shadow: 0 30px 70px -30px rgba(0,0,0,.8);
+    }
+    .fiche.active { border-color: rgba(255,106,19,.55); box-shadow: 0 40px 90px -35px rgba(255,46,58,.45); }
+    .fiche:not(.active) { cursor: pointer; }
+    .fiche:not(.active) .corps a { pointer-events: none; }
+    .visuel { aspect-ratio: 4/3; background: #120f0d; }
+    .visuel img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+    .visuel.a-venir { display: grid; place-items: center; padding: 20px; text-align: center; color: var(--gris); font-size: .82rem; border-bottom: 1px dashed rgba(255,106,19,.5); }
+    .corps { padding: 20px 20px 22px; }
+    .corps h3 { font-size: 1.6rem; margin-bottom: 12px; }
+    .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tags li { font-size: .75rem; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,106,19,.45); color: #ffb98c; }
+    .corps p { color: var(--gris); font-weight: 300; font-size: .95rem; min-height: 4.4em; margin-bottom: 18px; }
+    .pied { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .pied .prix { font-size: .88rem; color: var(--gris); }
+    .pied .prix b { display: block; color: var(--texte); font-weight: 500; font-size: 1rem; }
+    .pied .btn { padding: 11px 18px; font-size: .88rem; }
+    .commandes { display: flex; justify-content: center; align-items: center; gap: 22px; margin-top: 18px; }
+    .fleche { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--renard); cursor: pointer; display: grid; place-items: center; transition: background .2s; }
+    .fleche:hover { background: var(--renard-fonce); }
+    .fleche svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .points { display: flex; gap: 8px; }
+    .points span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.25); transition: background .3s, width .3s; }
+    .points span.actif { background: var(--renard); width: 22px; border-radius: 4px; }
+
     /* ===== Qui suis-je ===== */
     .qui { padding: clamp(90px, 12vw, 150px) 0; }
     .qui .conteneur { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
@@ -289,57 +323,61 @@
       </div>
     </section>
 
-    <!-- ===== CHAPITRE : PUBS VIDÉO ===== -->
-    <section class="chapitre" id="pubs">
+    <!-- ===== SERVICES : carrousel 3D ===== -->
+    <section class="services" id="pubs" aria-labelledby="t-services">
       <div class="conteneur revele">
-        <figure class="plan"><img src="images/renard-montage.jpg" alt="Le perso 3D de Renard devant ses écrans de montage vidéo" loading="lazy"></figure>
-        <div>
-          <h2>Pubs vidéo</h2>
-          <p>Des vidéos courtes qui arrêtent le pouce, pour vos statuts, TikTok et Reels. Mise en scène, voix off, sous-titres.</p>
-          <span class="prix">Tarif : <span>sur devis</span></span>
-          <div class="actions"><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20une%20pub%20vid%C3%A9o." target="_blank" rel="noopener noreferrer">Commander une pub</a></div>
+        <h2 class="titre-services" id="t-services">Ce que je crée pour vous</h2>
+        <div class="carrousel" id="carrousel" tabindex="0" aria-roledescription="carrousel" aria-label="Services de Bayano Studio. Utilisez les flèches pour changer de service.">
+          <article class="fiche" aria-label="Affiches">
+            <div class="visuel a-venir"><span>Image à créer : le perso colle une affiche lumineuse à Adjamé</span></div>
+            <div class="corps">
+              <h3>Affiches</h3>
+              <ul class="tags"><li>Promo</li><li>Lancement</li><li>Événement</li></ul>
+              <p>Des visuels qui attirent l'œil en une seconde, aux bons formats pour chaque réseau.</p>
+              <div class="pied"><span class="prix">À partir de <b>5 000 FCFA</b></span><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20une%20affiche." target="_blank" rel="noopener noreferrer">Commander</a></div>
+            </div>
+          </article>
+          <article class="fiche" aria-label="Pubs vidéo">
+            <div class="visuel"><img src="images/renard-montage.jpg" alt="Le perso 3D de Renard devant ses écrans de montage" loading="lazy"></div>
+            <div class="corps">
+              <h3>Pubs vidéo</h3>
+              <ul class="tags"><li>Statut WhatsApp</li><li>TikTok</li><li>Reels</li></ul>
+              <p>Des vidéos courtes qui arrêtent le pouce : mise en scène, voix off, sous-titres.</p>
+              <div class="pied"><span class="prix"><b>Sur devis</b></span><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20une%20pub%20vid%C3%A9o." target="_blank" rel="noopener noreferrer">Commander</a></div>
+            </div>
+          </article>
+          <article class="fiche" aria-label="Sites boutique">
+            <div class="visuel a-venir"><span>Image à créer : le perso montre une boutique en ligne à une vendeuse</span></div>
+            <div class="corps">
+              <h3>Sites boutique</h3>
+              <ul class="tags"><li>Panier WhatsApp</li><li>Wave</li><li>Orange Money</li></ul>
+              <p>Votre catalogue en ligne, géré depuis votre téléphone. <a class="lien" href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer">Voir un exemple</a></p>
+              <div class="pied"><span class="prix"><b>Sur devis</b></span><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20un%20site%20boutique." target="_blank" rel="noopener noreferrer">Commander</a></div>
+            </div>
+          </article>
+          <article class="fiche" aria-label="Photos produits">
+            <div class="visuel a-venir"><span>Image à créer : le perso photographie un parfum en studio</span></div>
+            <div class="corps">
+              <h3>Photos produits</h3>
+              <ul class="tags"><li>Détourage</li><li>Mise en scène</li><li>Retouche</li></ul>
+              <p>Un rendu studio, même à partir d'une simple photo prise au téléphone.</p>
+              <div class="pied"><span class="prix"><b>Sur devis</b></span><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20des%20photos%20produits." target="_blank" rel="noopener noreferrer">Commander</a></div>
+            </div>
+          </article>
+          <article class="fiche" aria-label="Autres créations">
+            <div class="visuel"><img src="images/renard-studio.jpg" alt="Le perso 3D de Renard dans son studio" loading="lazy"></div>
+            <div class="corps">
+              <h3>Et aussi</h3>
+              <ul class="tags"><li>Cartes de visite</li><li>Menus</li><li>Slogans</li></ul>
+              <p>Catalogues, textes pub et scripts vidéo : demandez, je vous dis ce qui est possible.</p>
+              <div class="pied"><span class="prix"><b>Sur devis</b></span><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20j%27ai%20un%20autre%20besoin." target="_blank" rel="noopener noreferrer">Demander</a></div>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== CHAPITRE : AFFICHES ===== -->
-    <section class="chapitre inverse">
-      <div class="conteneur revele">
-        <figure class="plan a-venir"><div><strong>Image à créer</strong>Le perso colle une affiche lumineuse sur un mur d'Adjamé</div></figure>
-        <div>
-          <h2>Affiches</h2>
-          <p>Promos, nouveautés, événements : des visuels qui attirent l'œil en une seconde, aux bons formats pour chaque réseau.</p>
-          <span class="prix">Tarif : <span>à partir de 5 000 FCFA</span></span>
-          <div class="actions"><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20une%20affiche." target="_blank" rel="noopener noreferrer">Commander une affiche</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CHAPITRE : SITES BOUTIQUE ===== -->
-    <section class="chapitre">
-      <div class="conteneur revele">
-        <figure class="plan a-venir"><div><strong>Image à créer</strong>Le perso montre une boutique en ligne sur son téléphone à une vendeuse</div></figure>
-        <div>
-          <h2>Sites boutique</h2>
-          <p>Votre catalogue en ligne : vos clients choisissent, la commande arrive sur votre WhatsApp, paiement Wave ou Orange Money.</p>
-          <span class="prix">Tarif : <span>sur devis</span></span>
-          <div class="actions">
-            <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20un%20site%20boutique." target="_blank" rel="noopener noreferrer">Demander mon site</a>
-            <a class="lien" href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer">Voir un exemple en ligne</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CHAPITRE : PHOTOS PRODUITS ===== -->
-    <section class="chapitre inverse">
-      <div class="conteneur revele">
-        <figure class="plan a-venir"><div><strong>Image à créer</strong>Le perso photographie un parfum sous des lumières de studio</div></figure>
-        <div>
-          <h2>Photos produits</h2>
-          <p>Détourage propre et mise en scène studio, même à partir d'une simple photo prise au téléphone.</p>
-          <span class="prix">Tarif : <span>sur devis</span></span>
-          <div class="actions"><a class="btn" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20des%20photos%20produits." target="_blank" rel="noopener noreferrer">Améliorer mes photos</a></div>
+        <div class="commandes">
+          <button type="button" class="fleche" id="prec" aria-label="Service précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="points" id="points" aria-hidden="true"></div>
+          <button type="button" class="fleche" id="suiv" aria-label="Service suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
     </section>
@@ -419,6 +457,50 @@
       if (!enAttente) { enAttente = true; requestAnimationFrame(surDefilement); }
     }, { passive: true });
     surDefilement();
+
+    // Carrousel des services : la carte active au centre, les autres inclinées sur les côtés
+    (function () {
+      var fiches = Array.prototype.slice.call(document.querySelectorAll(".fiche"));
+      var zone = document.getElementById("carrousel");
+      var points = document.getElementById("points");
+      var actif = 1; // commence sur "Pubs vidéo", avec une carte de chaque côté
+      fiches.forEach(function () { points.appendChild(document.createElement("span")); });
+
+      function afficher() {
+        var etroit = window.innerWidth < 640;
+        fiches.forEach(function (f, i) {
+          var d = i - actif, a = Math.abs(d);
+          var x = d * (etroit ? 78 : 74);
+          f.style.transform = "translateX(" + x + "%) translateZ(" + (-a * 140) + "px) rotateY(" + (-d * 28) + "deg) scale(" + (1 - a * 0.08) + ")";
+          f.style.opacity = a > 2 ? 0 : 1 - a * 0.3;
+          f.style.filter = a ? "brightness(" + (1 - a * 0.25) + ")" : "none";
+          f.style.zIndex = 10 - a;
+          f.classList.toggle("active", d === 0);
+          f.setAttribute("aria-hidden", d === 0 ? "false" : "true");
+        });
+        points.querySelectorAll("span").forEach(function (p, i) { p.classList.toggle("actif", i === actif); });
+      }
+      function aller(n) { actif = Math.max(0, Math.min(fiches.length - 1, n)); afficher(); }
+
+      document.getElementById("prec").addEventListener("click", function () { aller(actif - 1); });
+      document.getElementById("suiv").addEventListener("click", function () { aller(actif + 1); });
+      fiches.forEach(function (f, i) { f.addEventListener("click", function () { if (i !== actif) aller(i); }); });
+      zone.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") aller(actif - 1);
+        if (e.key === "ArrowRight") aller(actif + 1);
+      });
+      // Glisser le doigt sur téléphone
+      var departX = null;
+      zone.addEventListener("pointerdown", function (e) { departX = e.clientX; });
+      zone.addEventListener("pointerup", function (e) {
+        if (departX === null) return;
+        var ecart = e.clientX - departX;
+        if (Math.abs(ecart) > 40) aller(actif + (ecart < 0 ? 1 : -1));
+        departX = null;
+      });
+      window.addEventListener("resize", afficher);
+      afficher();
+    })();
 
     // Les chapitres apparaissent en douceur ; la courbe orange se dessine en bas
     var observateur = new IntersectionObserver(function (entrees) {
