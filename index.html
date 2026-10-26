@@ -182,6 +182,83 @@
     .points span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.25); transition: background .3s, width .3s; }
     .points span.actif { background: var(--renard); width: 22px; border-radius: 4px; }
 
+    /* ===== Bandeau défilant des métiers ===== */
+    .bandeau { overflow: hidden; border-block: 1px solid var(--filet); background: var(--nuit-2); padding: 18px 0; }
+    .bandeau-piste { display: flex; width: max-content; animation: defile 38s linear infinite; }
+    .bandeau-piste span { font-size: clamp(1.1rem, 2.4vw, 1.6rem); letter-spacing: -.02em; padding: 0 28px; white-space: nowrap; color: var(--gris); }
+    .bandeau-piste span::after { content: "✦"; color: var(--renard); margin-left: 56px; font-size: .7em; vertical-align: middle; }
+    @keyframes defile { to { transform: translateX(-50%); } }
+
+    /* ===== Cadre de téléphone réutilisable ===== */
+    .telephone-cadre { width: min(300px, 78vw); aspect-ratio: 9/18.5; padding: 10px; border-radius: 40px; background: #1a2440; border: 1px solid rgba(255,255,255,.14); box-shadow: 0 40px 90px -40px rgba(255,46,77,.45), 0 0 0 1px rgba(58,160,255,.12); margin-inline: auto; }
+    .tel-ecran { position: relative; width: 100%; height: 100%; border-radius: 31px; overflow: hidden; background: #fff; }
+
+    /* ===== Votre site en 10 secondes ===== */
+    .essai { padding: clamp(80px, 11vw, 140px) 0; }
+    .essai-grille { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 90px); align-items: center; }
+    .essai h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); margin-bottom: 14px; }
+    .essai-intro { color: var(--gris); font-weight: 300; font-size: 1.08rem; max-width: 26em; margin-bottom: 28px; }
+    .champ { display: block; font-size: .85rem; color: var(--gris); margin-bottom: 16px; max-width: 420px; }
+    .champ input, .champ select { display: block; width: 100%; margin-top: 6px; padding: 14px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,.18); background: #111a2e; color: var(--texte); font: inherit; font-size: 1rem; }
+    .champ input:focus, .champ select:focus { outline: none; border-color: var(--renard); box-shadow: 0 0 0 3px rgba(255,46,77,.25); }
+    .essai .btn { margin-top: 8px; }
+    .petit { margin-top: 14px; font-size: .8rem; color: var(--gris); max-width: 30em; }
+    .essai-site { --c1: #111; --c2: #ff2e4d; color: #111; font-size: 12px; display: flex; flex-direction: column; }
+    .es-haut { display: flex; justify-content: space-between; align-items: center; padding: 16px 16px 12px; border-bottom: 1px solid #eee; }
+    .es-haut b { font-size: 15px; letter-spacing: -.02em; max-width: 85%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .es-banniere { margin: 12px; padding: 22px 16px; border-radius: 14px; color: #fff; background: linear-gradient(135deg, var(--c1), var(--c2)); display: flex; flex-direction: column; gap: 4px; transition: background .4s; }
+    .es-banniere small { opacity: .85; }
+    .es-banniere strong { font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
+    .es-btn { align-self: flex-start; margin-top: 8px; background: #fff; color: #111; padding: 6px 12px; border-radius: 999px; font-weight: 500; }
+    .es-titre { padding: 4px 14px 8px; font-weight: 500; font-size: 13px; }
+    .es-produits { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 12px; flex: 1; align-content: start; }
+    .es-produit { border-radius: 10px; background: #f4f4f6; overflow: hidden; }
+    .es-produit i { display: block; aspect-ratio: 1; background: linear-gradient(145deg, color-mix(in srgb, var(--c2) 35%, #fff), color-mix(in srgb, var(--c1) 25%, #fff)); }
+    .es-produit span { display: block; padding: 6px 8px 0; font-size: 11px; }
+    .es-produit b { display: block; padding: 0 8px 8px; font-size: 11px; font-weight: 600; }
+    .es-commande { margin: 10px 12px 6px; padding: 11px; border-radius: 10px; background: #25d366; color: #052b13; text-align: center; font-weight: 600; }
+    .es-paiement { display: flex; justify-content: center; gap: 6px; padding-bottom: 14px; }
+    .es-paiement span { font-size: 10px; padding: 3px 8px; border-radius: 4px; background: #eef; color: #334; }
+    @media (max-width: 800px) { .essai-grille { grid-template-columns: 1fr; } }
+
+    /* ===== Étude de cas Almade ===== */
+    .cas { padding: clamp(80px, 11vw, 140px) 0; background: var(--nuit-2); }
+    .cas h2 { text-align: center; font-size: clamp(2rem, 4.4vw, 3.4rem); margin-bottom: 14px; }
+    .cas-intro { text-align: center; color: var(--gris); font-weight: 300; max-width: 32em; margin: 0 auto 50px; }
+    .cas-grille { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 820px; margin-inline: auto; }
+    .cas figcaption, .curseur-cas { display: block; text-align: center; margin-top: 16px; font-size: .88rem; color: var(--gris); }
+    .curseur-cas input { display: block; width: min(300px, 78vw); margin: 10px auto 0; accent-color: var(--renard); }
+    .comparaison .apres-site img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .avant-chat { position: absolute; inset: 0; background: #0b141a; padding: 0 10px 12px; display: flex; flex-direction: column; gap: 7px; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+    .ac-haut { margin: 0 -10px 6px; padding: 16px 14px 10px; background: #1f2c34; color: #e9edef; font-size: 13px; font-weight: 500; }
+    .ac-haut small { display: block; color: #8696a0; font-weight: 400; font-size: 11px; }
+    .ac-msg { max-width: 80%; padding: 7px 10px; border-radius: 8px; font-size: 12px; color: #e9edef; line-height: 1.35; }
+    .ac-msg.c { align-self: flex-start; background: #202c33; }
+    .ac-msg.v { align-self: flex-end; background: #005c4b; }
+    .ac-msg.photo { display: flex; gap: 4px; padding: 4px; }
+    .ac-msg.photo span { width: 46px; height: 46px; border-radius: 5px; background: linear-gradient(135deg, #556, #223); }
+    .poignee { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 14px rgba(255,46,77,.9); }
+    .poignee::after { content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%; background: var(--renard); color: #fff; display: grid; place-items: center; font-size: 16px; }
+    .etiquette-cas { position: absolute; bottom: 14px; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(0,0,0,.65); color: #fff; }
+    .e-avant { left: 14px; } .e-apres { right: 14px; }
+    .defile { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+    .defile::-webkit-scrollbar { display: none; }
+    .defile img { width: 100%; height: auto; }
+    .cas-points { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 46px; }
+    .cas-points li { padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(58,160,255,.35); background: rgba(58,160,255,.08); font-size: .9rem; }
+    @media (max-width: 700px) { .cas-grille { grid-template-columns: 1fr; gap: 56px; } }
+
+    /* ===== Questions fréquentes ===== */
+    .faq { padding: clamp(80px, 11vw, 140px) 0; }
+    .faq h2 { text-align: center; font-size: clamp(2rem, 4.4vw, 3.4rem); margin-bottom: 44px; }
+    .faq-liste { max-width: 760px; margin-inline: auto; border-top: 1px solid var(--filet); }
+    .faq details { border-bottom: 1px solid var(--filet); }
+    .faq summary { list-style: none; cursor: pointer; padding: 22px 44px 22px 0; font-size: 1.12rem; position: relative; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; font-weight: 300; color: var(--renard); transition: transform .3s; }
+    .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+    .faq details p { color: var(--gris); font-weight: 300; padding: 0 44px 22px 0; max-width: 40em; }
+
     /* ===== Qui suis-je : transformation en hologramme pilotée par le défilement ===== */
     .holo-piste { position: relative; height: 230vh; --p: 0; }
     .holo-scene { position: sticky; top: 0; height: 100svh; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 80px); align-items: center; padding-top: 60px; }
@@ -368,6 +445,7 @@
       html { scroll-behavior: auto; }
       .hero .entree, .revele { animation: none; transition: none; opacity: 1; transform: none; }
       .final .courbe path { transition: none; stroke-dashoffset: 0; }
+      .bandeau-piste { animation: none; }
     }
   </style>
 </head>
@@ -408,8 +486,9 @@
       </a>
       <nav aria-label="Menu principal">
         <a href="#pubs">Offres</a>
+        <a href="#essai">Essayer</a>
+        <a href="#cas">Exemple</a>
         <a href="#qui">Qui suis-je</a>
-        <a href="#contact">Contact</a>
         <a class="btn" href="https://wa.me/2250141377402?text=Bonjour%20Bayano%20Studio%2C%20je%20voudrais%20un%20devis." target="_blank" rel="noopener noreferrer">Démo gratuite</a>
       </nav>
     </div>
@@ -418,7 +497,7 @@
   <main>
     <!-- ===== ACCUEIL ===== -->
     <section class="hero" aria-label="Accueil">
-      <video id="video-hero" src="images/hero-abidjan.mp4" poster="images/hero-abidjan.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <video id="video-hero" src="images/hero-studio.mp4" poster="images/hero-studio.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <div class="voile"></div>
       <div class="conteneur texte">
         <h1 class="entree">Votre boutique en ligne, prête à vendre.</h1>
@@ -429,6 +508,11 @@
       </div>
     </section>
 
+    <!-- ===== BANDEAU DES MÉTIERS ===== -->
+    <div class="bandeau" aria-label="Pour tous les commerces : Sneakers, Parfums, Maquis et restaurants, Vêtements, Perruques et mèches, Téléphones, Cosmétiques, Accessoires">
+      <div class="bandeau-piste" aria-hidden="true"><span>Sneakers</span><span>Parfums</span><span>Maquis et restaurants</span><span>Vêtements</span><span>Perruques et mèches</span><span>Téléphones</span><span>Cosmétiques</span><span>Accessoires</span><span>Sneakers</span><span>Parfums</span><span>Maquis et restaurants</span><span>Vêtements</span><span>Perruques et mèches</span><span>Téléphones</span><span>Cosmétiques</span><span>Accessoires</span></div>
+    </div>
+
     <!-- ===== ACCROCHE ===== -->
     <section class="accroche" id="accroche">
       <div class="conteneur">
@@ -438,6 +522,41 @@
           <li><b>Wave et Orange Money</b><span>commande directe sur WhatsApp</span></li>
           <li><b>Vous gérez tout</b><span>depuis votre téléphone</span></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- ===== VOTRE SITE EN 10 SECONDES ===== -->
+    <section class="essai" id="essai" aria-labelledby="t-essai">
+      <div class="conteneur essai-grille revele">
+        <div>
+          <h2 id="t-essai">Votre site en 10 secondes</h2>
+          <p class="essai-intro">Tapez le nom de votre boutique et voyez à quoi pourrait ressembler votre site.</p>
+          <label class="champ">Nom de votre boutique
+            <input id="essai-nom" type="text" maxlength="28" placeholder="Ex. : Chez Awa" autocomplete="off">
+          </label>
+          <label class="champ">Vous vendez
+            <select id="essai-metier">
+              <option value="sneakers">Des sneakers</option>
+              <option value="parfums">Des parfums</option>
+              <option value="maquis">Des plats (maquis, restaurant)</option>
+              <option value="mode">Des vêtements</option>
+              <option value="perruques">Des perruques et mèches</option>
+              <option value="telephones">Des téléphones</option>
+            </select>
+          </label>
+          <a class="btn" id="essai-envoyer" href="https://wa.me/2250141377402?text=Bonjour%2C%20je%20voudrais%20ma%20d%C3%A9mo%20gratuite." target="_blank" rel="noopener noreferrer">Recevoir ma vraie démo gratuite</a>
+          <p class="petit">Ceci est un aperçu automatique. La vraie démo est faite à la main, avec vos produits.</p>
+        </div>
+        <div class="telephone-cadre" aria-live="polite">
+          <div class="tel-ecran essai-site" id="essai-site" data-metier="sneakers">
+            <div class="es-haut"><b id="es-nom">Chez Awa</b><span aria-hidden="true">☰</span></div>
+            <div class="es-banniere"><small id="es-slogan">Les meilleures paires d'Abidjan</small><strong id="es-accroche">Nouvelle collection</strong><span class="es-btn">Voir le catalogue</span></div>
+            <div class="es-titre">Nos produits</div>
+            <div class="es-produits" id="es-produits"></div>
+            <div class="es-commande">Commander sur WhatsApp</div>
+            <div class="es-paiement"><span>Wave</span><span>Orange Money</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -497,6 +616,51 @@
           <div class="points" id="points" aria-hidden="true"></div>
           <button type="button" class="fleche" id="suiv" aria-label="Service suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== ÉTUDE DE CAS : ALMADE SNKRS ===== -->
+    <section class="cas" id="cas" aria-labelledby="t-cas">
+      <div class="conteneur revele">
+        <h2 id="t-cas">Un vrai client : Almade Snkrs</h2>
+        <p class="cas-intro">Revendeur de sneakers à Abidjan. Avant, tout passait par WhatsApp. Maintenant, il a sa boutique en ligne.</p>
+        <div class="cas-grille">
+          <figure>
+            <div class="telephone-cadre">
+              <div class="tel-ecran comparaison" id="comparaison" style="--pos:50%">
+                <div class="apres-site"><img src="images/almade-site-mobile.jpg" alt="Après : la boutique en ligne Almade Snkrs" loading="lazy"></div>
+                <div class="avant-chat" aria-label="Avant : les commandes passaient uniquement par messages WhatsApp (illustration)">
+                  <div class="ac-haut">Almade Snkrs <small>en ligne</small></div>
+                  <div class="ac-msg c">Bonsoir, la noire là c'est combien ?</div>
+                  <div class="ac-msg v photo"><span></span><span></span><span></span></div>
+                  <div class="ac-msg c">Vous avez quelle pointure ?</div>
+                  <div class="ac-msg c">Renvoyez les photos svp</div>
+                  <div class="ac-msg v photo"><span></span><span></span></div>
+                  <div class="ac-msg c">Et la blanche ?</div>
+                </div>
+                <span class="poignee" aria-hidden="true"></span>
+                <span class="etiquette-cas e-avant">Avant</span><span class="etiquette-cas e-apres">Après</span>
+              </div>
+            </div>
+            <label class="curseur-cas">Faites glisser pour comparer
+              <input type="range" id="comparaison-curseur" min="0" max="100" value="50">
+            </label>
+          </figure>
+          <figure>
+            <div class="telephone-cadre">
+              <div class="tel-ecran defile" tabindex="0" aria-label="Le site Almade Snkrs, à faire défiler">
+                <img src="images/almade-long.jpg" alt="La page d'accueil complète du site Almade Snkrs sur téléphone" loading="lazy" width="585" height="13856">
+              </div>
+            </div>
+            <figcaption>Faites défiler le vrai site dans le téléphone. <a class="lien" href="https://almade-snkrs.pages.dev" target="_blank" rel="noopener noreferrer">L'ouvrir en grand</a></figcaption>
+          </figure>
+        </div>
+        <ul class="cas-points">
+          <li>Catalogue avec photos, prix et pointures</li>
+          <li>Commande directe sur WhatsApp</li>
+          <li>Paiement Wave et Orange Money</li>
+          <li>Il ajoute ses paires lui-même, depuis son téléphone</li>
+        </ul>
       </div>
     </section>
 
@@ -568,6 +732,22 @@
             <h3>Vous vendez</h3><p>Votre boutique en ligne, à partager partout : statut, TikTok, Instagram.</p>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ===== QUESTIONS FRÉQUENTES ===== -->
+    <section class="faq" id="faq" aria-labelledby="t-faq">
+      <div class="conteneur revele">
+        <h2 id="t-faq">Vos questions</h2>
+        <div class="faq-liste">
+          <details><summary>Combien coûte un site ?</summary><p>Ça dépend de la formule : vitrine, catalogue ou boutique autonome. Après la démo gratuite, je vous donne un prix clair, sans surprise.</p></details>
+          <details><summary>La démo est vraiment gratuite ?</summary><p>Oui. Je prépare une maquette avec le nom de votre boutique et quelques-uns de vos produits. Si elle ne vous plaît pas, vous ne payez rien.</p></details>
+          <details><summary>En combien de temps mon site est prêt ?</summary><p>Quelques jours pour un site vitrine, et 2 à 3 semaines pour une boutique complète avec espace vendeur.</p></details>
+          <details><summary>Comment se passe le paiement ?</summary><p>Un acompte de 50 % pour commencer, et le reste à la livraison du site.</p></details>
+          <details><summary>C'est quoi le nom de domaine ?</summary><p>C'est l'adresse de votre site, par exemple maboutique.com. Il coûte environ 7 000 à 9 000 FCFA par an, à votre charge. Je m'occupe de tout le reste.</p></details>
+          <details><summary>Est-ce que je peux modifier mon site moi-même ?</summary><p>Oui avec la boutique autonome : vous ajoutez vos produits, photos et prix depuis votre téléphone. Pour les autres formules, je fais les mises à jour pour vous.</p></details>
+          <details><summary>Mes clients peuvent payer en ligne ?</summary><p>Oui, avec vos liens Wave et Orange Money. La commande arrive directement sur votre WhatsApp.</p></details>
+        </div>
       </div>
     </section>
 
@@ -682,6 +862,62 @@
       });
       window.addEventListener("resize", afficher);
       afficher();
+    })();
+
+    // Votre site en 10 secondes : la maquette se met à jour pendant la frappe
+    (function () {
+      var modeles = {
+        sneakers:   { c1: "#111111", c2: "#ff2e4d", slogan: "Les meilleures paires d'Abidjan", accroche: "Nouvelle collection", produits: [["Air Max noire", "35 000 FCFA"], ["Jordan blanche", "45 000 FCFA"], ["Runner gris", "28 000 FCFA"], ["Basket rouge", "32 000 FCFA"]] },
+        parfums:    { c1: "#2b1a12", c2: "#c9963f", slogan: "Parfums hommes et femmes", accroche: "Un sillage inoubliable", produits: [["Eau de parfum 100 ml", "18 000 FCFA"], ["Coffret cadeau", "25 000 FCFA"], ["Parfum oriental", "15 000 FCFA"], ["Brume corps", "8 000 FCFA"]] },
+        maquis:     { c1: "#3a1d07", c2: "#ff8a1f", slogan: "Livraison partout à Abidjan", accroche: "Le menu du jour", produits: [["Garba complet", "1 500 FCFA"], ["Poulet braisé", "5 000 FCFA"], ["Alloco poisson", "3 000 FCFA"], ["Jus de bissap", "1 000 FCFA"]] },
+        mode:       { c1: "#1b1b3a", c2: "#7a5cff", slogan: "La mode à petit prix", accroche: "Nouveautés de la semaine", produits: [["Robe pagne", "15 000 FCFA"], ["Chemise lin", "12 000 FCFA"], ["Ensemble wax", "20 000 FCFA"], ["Sac à main", "10 000 FCFA"]] },
+        perruques:  { c1: "#3a0f2a", c2: "#ff5fa2", slogan: "Perruques et mèches de qualité", accroche: "Brillez chaque jour", produits: [["Perruque lisse", "45 000 FCFA"], ["Mèches bouclées", "12 000 FCFA"], ["Frontal 13x4", "60 000 FCFA"], ["Kit entretien", "6 000 FCFA"]] },
+        telephones: { c1: "#0a1a33", c2: "#3aa0ff", slogan: "Téléphones et accessoires", accroche: "Garantie et livraison", produits: [["Smartphone 128 Go", "95 000 FCFA"], ["Écouteurs sans fil", "12 000 FCFA"], ["Chargeur rapide", "5 000 FCFA"], ["Coque renforcée", "3 000 FCFA"]] }
+      };
+      var nom = document.getElementById("essai-nom");
+      var metier = document.getElementById("essai-metier");
+      var site = document.getElementById("essai-site");
+      var liste = document.getElementById("es-produits");
+      var envoyer = document.getElementById("essai-envoyer");
+      function majEssai() {
+        var m = modeles[metier.value];
+        var n = nom.value.trim() || "Chez Awa";
+        document.getElementById("es-nom").textContent = n;
+        document.getElementById("es-slogan").textContent = m.slogan;
+        document.getElementById("es-accroche").textContent = m.accroche;
+        site.style.setProperty("--c1", m.c1);
+        site.style.setProperty("--c2", m.c2);
+        liste.textContent = "";
+        m.produits.forEach(function (p) {
+          var d = document.createElement("div"); d.className = "es-produit";
+          var img = document.createElement("i");
+          var t = document.createElement("span"); t.textContent = p[0];
+          var prix = document.createElement("b"); prix.textContent = p[1];
+          d.appendChild(img); d.appendChild(t); d.appendChild(prix); liste.appendChild(d);
+        });
+        var texte = "Bonjour, je voudrais ma démo gratuite de site pour ma boutique « " + n + " » (" + metier.options[metier.selectedIndex].text.toLowerCase() + ").";
+        envoyer.href = "https://wa.me/2250141377402?text=" + encodeURIComponent(texte);
+      }
+      nom.addEventListener("input", majEssai);
+      metier.addEventListener("change", majEssai);
+      majEssai();
+    })();
+
+    // Avant / après : le curseur déplace la séparation
+    (function () {
+      var zone = document.getElementById("comparaison");
+      var curseur = document.getElementById("comparaison-curseur");
+      function placer(v) { zone.style.setProperty("--pos", v + "%"); curseur.value = v; }
+      curseur.addEventListener("input", function () { placer(curseur.value); });
+      var tire = false;
+      function suivre(e) {
+        var r = zone.getBoundingClientRect();
+        placer(Math.round(Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100))));
+      }
+      zone.addEventListener("pointerdown", function (e) { tire = true; zone.setPointerCapture(e.pointerId); suivre(e); });
+      zone.addEventListener("pointermove", function (e) { if (tire) suivre(e); });
+      zone.addEventListener("pointerup", function () { tire = false; });
+      zone.style.touchAction = "pan-y";
     })();
 
     // Les chapitres apparaissent en douceur ; la courbe orange se dessine en bas
